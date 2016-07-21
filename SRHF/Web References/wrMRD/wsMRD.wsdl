@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddMRD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mrd" type="tns:MRD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MRD">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SlNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMRNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Diagnosis" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRDNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ICDCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddMRDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMRDResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Server2Client">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="value" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="dt">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="ds">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateMRD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mrd" type="tns:MRD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMRDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateMRDResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMRD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mrd" type="tns:MRD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMRDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteMRDResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSerialNo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSerialNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSerialNoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddMRDSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMRD" />
+  </wsdl:message>
+  <wsdl:message name="AddMRDSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMRDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMRDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMRD" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMRDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMRDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMRDSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMRD" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMRDSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMRDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSerialNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSerialNo" />
+  </wsdl:message>
+  <wsdl:message name="GetSerialNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSerialNoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsMRDSoap">
+    <wsdl:operation name="AddMRD">
+      <wsdl:input message="tns:AddMRDSoapIn" />
+      <wsdl:output message="tns:AddMRDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMRD">
+      <wsdl:input message="tns:UpdateMRDSoapIn" />
+      <wsdl:output message="tns:UpdateMRDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMRD">
+      <wsdl:input message="tns:DeleteMRDSoapIn" />
+      <wsdl:output message="tns:DeleteMRDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSerialNo">
+      <wsdl:input message="tns:GetSerialNoSoapIn" />
+      <wsdl:output message="tns:GetSerialNoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsMRDSoap" type="tns:wsMRDSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddMRD">
+      <soap:operation soapAction="http://tempuri.org/AddMRD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMRD">
+      <soap:operation soapAction="http://tempuri.org/UpdateMRD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMRD">
+      <soap:operation soapAction="http://tempuri.org/DeleteMRD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSerialNo">
+      <soap:operation soapAction="http://tempuri.org/GetSerialNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsMRDSoap12" type="tns:wsMRDSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddMRD">
+      <soap12:operation soapAction="http://tempuri.org/AddMRD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMRD">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMRD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMRD">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMRD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSerialNo">
+      <soap12:operation soapAction="http://tempuri.org/GetSerialNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsMRD">
+    <wsdl:port name="wsMRDSoap" binding="tns:wsMRDSoap">
+      <soap:address location="http://localhost:49983/wsMRD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsMRDSoap12" binding="tns:wsMRDSoap12">
+      <soap12:address location="http://localhost:49983/wsMRD.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 
 /// <summary>
@@ -12,6 +14,7 @@ public class Server2Client
     public int count { get; set; }
     public double value { get; set; }
     public string message { get; set; }
+    public bool result { get; set; }
     public DataTable dt { get; set; }
     public DataSet ds { get; set; }
 }
@@ -30,6 +33,7 @@ public class Patient
 public class OPD
 {
     public int ID { get; set; }
+    public DateTime I_Date { get; set; }
     public int DailyNo { get; set; }
     public int MonthlyNo { get; set; }
     public int YearlyNo { get; set; }
@@ -41,6 +45,7 @@ public class OPD
 public class ECG
 {
     public int ID { get; set; }
+    public DateTime I_Date { get; set; }
     public int DailyNo { get; set; }
     public int MonthlyNo { get; set; }
     public string EMRNo { get; set; }
@@ -53,6 +58,7 @@ public class ECG
 public class USG
 {
     public int ID { get; set; }
+    public DateTime I_Date { get; set; }
     public int DailyNo { get; set; }
     public int MonthlyNo { get; set; }
     public string EMRNo { get; set; }
@@ -65,6 +71,7 @@ public class USG
 public class XRAY
 {
     public int ID { get; set; }
+    public DateTime I_Date { get; set; }
     public int DailyNo { get; set; }
     public int MonthlyNo { get; set; }
     public string EMRNo { get; set; }
@@ -77,6 +84,7 @@ public class XRAY
 public class LAB
 {
     public int ID { get; set; }
+    public DateTime I_Date { get; set; }
     public int SlNo { get; set; }
     public int DailyNo { get; set; }
     public string ReceiptNo { get; set; }
@@ -114,4 +122,25 @@ public class MRD
     public string Diagnosis { get; set; }
     public string MRDNo { get; set; }
     public string ICDCode { get; set; }
+}
+
+public class Users
+{
+    public int ID { get; set; }
+    public string UserName { get; set; }
+    public string Password { get; set; }
+    public string UserType { get; set; }
+
+}
+
+public class Utils
+{
+    public string Encrypt(string uname, string pwd)
+    {
+        SHA256Managed h = new SHA256Managed();
+        byte[] b = Encoding.UTF8.GetBytes(string.Concat(pwd, uname));
+        byte[] e = h.ComputeHash(b);
+        h.Clear();
+        return Convert.ToBase64String(e);
+    }
 }

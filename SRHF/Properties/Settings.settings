@@ -1,7 +1,30 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SRHF.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SRHF_wrUsers_wsUsers" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsUsers.asmx</Value>
+    </Setting>
+    <Setting Name="SRHF_wrPatient_wsPatient" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsPatient.asmx</Value>
+    </Setting>
+    <Setting Name="SRHF_wrOPD_wsOPD" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsOPD.asmx</Value>
+    </Setting>
+    <Setting Name="SRHF_wrECG_wsECG" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsECG.asmx</Value>
+    </Setting>
+    <Setting Name="WindowTheme" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WindowGeometry" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SRHF_wrICD_wsICD" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsICD.asmx</Value>
+    </Setting>
+    <Setting Name="SRHF_wrMRD_wsMRD" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsMRD.asmx</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

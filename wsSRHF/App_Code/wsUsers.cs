@@ -23,7 +23,7 @@ public class wsUsers : System.Web.Services.WebService
     public Server2Client GetUsers()
     {
         Server2Client sc = new Server2Client();
-        OleDbCommand cmd = new OleDbCommand("SELECT ID, UserName, Password, UserType FROM users", cm);
+        OleDbCommand cmd = new OleDbCommand("SELECT ID, UserName, '******' AS [Password], UserType FROM users", cm);
         OleDbDataAdapter da = new OleDbDataAdapter(cmd);
         DataSet ds = new DataSet();
         da.Fill(ds);
@@ -37,7 +37,7 @@ public class wsUsers : System.Web.Services.WebService
     {
         Server2Client sc = new Server2Client();
         Utils utl = new Utils();
-        OleDbCommand cmd = new OleDbCommand("SELECT ID, UserType FROM users WHERE UserName=@UNM AND Password=@PWD", cm);
+        OleDbCommand cmd = new OleDbCommand("SELECT ID, UserType FROM users WHERE UserName=@UNM AND [Password]=@PWD", cm);
         cmd.Parameters.AddWithValue("@UNM", u.UserName);
         cmd.Parameters.AddWithValue("@PWD", utl.Encrypt(u.UserName, u.Password));
         try
@@ -62,10 +62,11 @@ public class wsUsers : System.Web.Services.WebService
     public Server2Client AddUser(Users u)
     {
         Server2Client sc = new Server2Client();
-        OleDbCommand cmd = new OleDbCommand("INSERT INTO users (UserName, Password, UserType) VALUES ('" + u.UserName + "', '" + u.Password + "', '" + u.UserType + "')", cm);
-        //cmd.Parameters.AddWithValue("@UNM", u.UserName);
-        //cmd.Parameters.AddWithValue("@PWD", u.Password);
-        //cmd.Parameters.AddWithValue("@UTP", u.UserType);
+        Utils utl = new Utils();
+        OleDbCommand cmd = new OleDbCommand("INSERT INTO users (UserName, [Password], UserType) VALUES (@UNM, @PWD, @UTP)", cm);
+        cmd.Parameters.AddWithValue("@UNM", u.UserName);
+        cmd.Parameters.AddWithValue("@PWD", utl.Encrypt(u.UserName, u.Password));
+        cmd.Parameters.AddWithValue("@UTP", u.UserType);
         try
         {
             cm.Open();
@@ -80,10 +81,11 @@ public class wsUsers : System.Web.Services.WebService
     public Server2Client UpdateUser(Users u)
     {
         Server2Client sc = new Server2Client();
-        OleDbCommand cmd = new OleDbCommand("UPDATE users SET UserName=@UNM, Password=@PWD, UserType=@UTP WHERE ID=" + u.ID, cm);
+        Utils utl = new Utils();
+        OleDbCommand cmd = new OleDbCommand("UPDATE users SET UserName=@UNM, [Password]=@PWD, UserType=@UTP WHERE ID=" + u.ID, cm);
         cmd.Parameters.AddWithValue("@UNM", u.UserName);
-        cmd.Parameters.AddWithValue("@PWD", u.Password);
-        cmd.Parameters.AddWithValue("@UTP", u.Password);
+        cmd.Parameters.AddWithValue("@PWD", utl.Encrypt(u.UserName, u.Password));
+        cmd.Parameters.AddWithValue("@UTP", u.UserType);
         try
         {
             cm.Open();

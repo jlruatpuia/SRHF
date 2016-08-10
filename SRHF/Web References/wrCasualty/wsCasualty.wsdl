@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetCasualty">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCasualtyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCasualtyResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Server2Client">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="value" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="dt">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="ds">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCasualtyByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCasualtyByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCasualtyByIDResult" type="tns:Casualty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Casualty">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SlNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Age" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Diagnosis" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Treatment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCasualtyByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCasualtyByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCasualtyByDateResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCasualtyByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="df" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCasualtyByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCasualtyByDatesResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCasualty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:Casualty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCasualtyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddCasualtyResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCasualty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:Casualty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCasualtyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCasualtyResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCasualty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:Casualty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCasualtyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteCasualtyResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegdNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegdNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegdNoResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SerialNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SerialNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SerialNoResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCasualtySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCasualty" />
+  </wsdl:message>
+  <wsdl:message name="GetCasualtySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCasualtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCasualtyByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCasualtyByID" />
+  </wsdl:message>
+  <wsdl:message name="GetCasualtyByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCasualtyByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCasualtyByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCasualtyByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetCasualtyByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCasualtyByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCasualtyByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCasualtyByDates" />
+  </wsdl:message>
+  <wsdl:message name="GetCasualtyByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCasualtyByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCasualtySoapIn">
+    <wsdl:part name="parameters" element="tns:AddCasualty" />
+  </wsdl:message>
+  <wsdl:message name="AddCasualtySoapOut">
+    <wsdl:part name="parameters" element="tns:AddCasualtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCasualtySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCasualty" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCasualtySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCasualtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCasualtySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCasualty" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCasualtySoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCasualtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegdNoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegdNo" />
+  </wsdl:message>
+  <wsdl:message name="RegdNoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegdNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SerialNoSoapIn">
+    <wsdl:part name="parameters" element="tns:SerialNo" />
+  </wsdl:message>
+  <wsdl:message name="SerialNoSoapOut">
+    <wsdl:part name="parameters" element="tns:SerialNoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsCasualtySoap">
+    <wsdl:operation name="GetCasualty">
+      <wsdl:input message="tns:GetCasualtySoapIn" />
+      <wsdl:output message="tns:GetCasualtySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualtyByID">
+      <wsdl:input message="tns:GetCasualtyByIDSoapIn" />
+      <wsdl:output message="tns:GetCasualtyByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualtyByDate">
+      <wsdl:input message="tns:GetCasualtyByDateSoapIn" />
+      <wsdl:output message="tns:GetCasualtyByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualtyByDates">
+      <wsdl:input message="tns:GetCasualtyByDatesSoapIn" />
+      <wsdl:output message="tns:GetCasualtyByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCasualty">
+      <wsdl:input message="tns:AddCasualtySoapIn" />
+      <wsdl:output message="tns:AddCasualtySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCasualty">
+      <wsdl:input message="tns:UpdateCasualtySoapIn" />
+      <wsdl:output message="tns:UpdateCasualtySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCasualty">
+      <wsdl:input message="tns:DeleteCasualtySoapIn" />
+      <wsdl:output message="tns:DeleteCasualtySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegdNo">
+      <wsdl:input message="tns:RegdNoSoapIn" />
+      <wsdl:output message="tns:RegdNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SerialNo">
+      <wsdl:input message="tns:SerialNoSoapIn" />
+      <wsdl:output message="tns:SerialNoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsCasualtySoap" type="tns:wsCasualtySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCasualty">
+      <soap:operation soapAction="http://tempuri.org/GetCasualty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualtyByID">
+      <soap:operation soapAction="http://tempuri.org/GetCasualtyByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualtyByDate">
+      <soap:operation soapAction="http://tempuri.org/GetCasualtyByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualtyByDates">
+      <soap:operation soapAction="http://tempuri.org/GetCasualtyByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCasualty">
+      <soap:operation soapAction="http://tempuri.org/AddCasualty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCasualty">
+      <soap:operation soapAction="http://tempuri.org/UpdateCasualty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCasualty">
+      <soap:operation soapAction="http://tempuri.org/DeleteCasualty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegdNo">
+      <soap:operation soapAction="http://tempuri.org/RegdNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SerialNo">
+      <soap:operation soapAction="http://tempuri.org/SerialNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsCasualtySoap12" type="tns:wsCasualtySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCasualty">
+      <soap12:operation soapAction="http://tempuri.org/GetCasualty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualtyByID">
+      <soap12:operation soapAction="http://tempuri.org/GetCasualtyByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualtyByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetCasualtyByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualtyByDates">
+      <soap12:operation soapAction="http://tempuri.org/GetCasualtyByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCasualty">
+      <soap12:operation soapAction="http://tempuri.org/AddCasualty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCasualty">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCasualty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCasualty">
+      <soap12:operation soapAction="http://tempuri.org/DeleteCasualty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegdNo">
+      <soap12:operation soapAction="http://tempuri.org/RegdNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SerialNo">
+      <soap12:operation soapAction="http://tempuri.org/SerialNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsCasualty">
+    <wsdl:port name="wsCasualtySoap" binding="tns:wsCasualtySoap">
+      <soap:address location="http://localhost:49983/wsCasualty.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsCasualtySoap12" binding="tns:wsCasualtySoap12">
+      <soap12:address location="http://localhost:49983/wsCasualty.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

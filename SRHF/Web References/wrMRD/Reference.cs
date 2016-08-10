@@ -30,6 +30,16 @@ namespace SRHF.wrMRD {
     [System.Web.Services.WebServiceBindingAttribute(Name="wsMRDSoap", Namespace="http://tempuri.org/")]
     public partial class wsMRD : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback GetPatientMRDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetMRDByDateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetMRDByDatesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetMRDByIDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetMRDByEMROperationCompleted;
+        
         private System.Threading.SendOrPostCallback AddMRDOperationCompleted;
         
         private System.Threading.SendOrPostCallback UpdateMRDOperationCompleted;
@@ -77,6 +87,21 @@ namespace SRHF.wrMRD {
         }
         
         /// <remarks/>
+        public event GetPatientMRDCompletedEventHandler GetPatientMRDCompleted;
+        
+        /// <remarks/>
+        public event GetMRDByDateCompletedEventHandler GetMRDByDateCompleted;
+        
+        /// <remarks/>
+        public event GetMRDByDatesCompletedEventHandler GetMRDByDatesCompleted;
+        
+        /// <remarks/>
+        public event GetMRDByIDCompletedEventHandler GetMRDByIDCompleted;
+        
+        /// <remarks/>
+        public event GetMRDByEMRCompletedEventHandler GetMRDByEMRCompleted;
+        
+        /// <remarks/>
         public event AddMRDCompletedEventHandler AddMRDCompleted;
         
         /// <remarks/>
@@ -87,6 +112,159 @@ namespace SRHF.wrMRD {
         
         /// <remarks/>
         public event GetSerialNoCompletedEventHandler GetSerialNoCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPatientMRD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public MRD GetPatientMRD(string query, string field) {
+            object[] results = this.Invoke("GetPatientMRD", new object[] {
+                        query,
+                        field});
+            return ((MRD)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetPatientMRDAsync(string query, string field) {
+            this.GetPatientMRDAsync(query, field, null);
+        }
+        
+        /// <remarks/>
+        public void GetPatientMRDAsync(string query, string field, object userState) {
+            if ((this.GetPatientMRDOperationCompleted == null)) {
+                this.GetPatientMRDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetPatientMRDOperationCompleted);
+            }
+            this.InvokeAsync("GetPatientMRD", new object[] {
+                        query,
+                        field}, this.GetPatientMRDOperationCompleted, userState);
+        }
+        
+        private void OnGetPatientMRDOperationCompleted(object arg) {
+            if ((this.GetPatientMRDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetPatientMRDCompleted(this, new GetPatientMRDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetMRDByDate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client GetMRDByDate(System.DateTime d, string DateQuery) {
+            object[] results = this.Invoke("GetMRDByDate", new object[] {
+                        d,
+                        DateQuery});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetMRDByDateAsync(System.DateTime d, string DateQuery) {
+            this.GetMRDByDateAsync(d, DateQuery, null);
+        }
+        
+        /// <remarks/>
+        public void GetMRDByDateAsync(System.DateTime d, string DateQuery, object userState) {
+            if ((this.GetMRDByDateOperationCompleted == null)) {
+                this.GetMRDByDateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetMRDByDateOperationCompleted);
+            }
+            this.InvokeAsync("GetMRDByDate", new object[] {
+                        d,
+                        DateQuery}, this.GetMRDByDateOperationCompleted, userState);
+        }
+        
+        private void OnGetMRDByDateOperationCompleted(object arg) {
+            if ((this.GetMRDByDateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetMRDByDateCompleted(this, new GetMRDByDateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetMRDByDates", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client GetMRDByDates(System.DateTime df, System.DateTime dt, string DateQuery) {
+            object[] results = this.Invoke("GetMRDByDates", new object[] {
+                        df,
+                        dt,
+                        DateQuery});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetMRDByDatesAsync(System.DateTime df, System.DateTime dt, string DateQuery) {
+            this.GetMRDByDatesAsync(df, dt, DateQuery, null);
+        }
+        
+        /// <remarks/>
+        public void GetMRDByDatesAsync(System.DateTime df, System.DateTime dt, string DateQuery, object userState) {
+            if ((this.GetMRDByDatesOperationCompleted == null)) {
+                this.GetMRDByDatesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetMRDByDatesOperationCompleted);
+            }
+            this.InvokeAsync("GetMRDByDates", new object[] {
+                        df,
+                        dt,
+                        DateQuery}, this.GetMRDByDatesOperationCompleted, userState);
+        }
+        
+        private void OnGetMRDByDatesOperationCompleted(object arg) {
+            if ((this.GetMRDByDatesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetMRDByDatesCompleted(this, new GetMRDByDatesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetMRDByID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public MRD GetMRDByID(int ID) {
+            object[] results = this.Invoke("GetMRDByID", new object[] {
+                        ID});
+            return ((MRD)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetMRDByIDAsync(int ID) {
+            this.GetMRDByIDAsync(ID, null);
+        }
+        
+        /// <remarks/>
+        public void GetMRDByIDAsync(int ID, object userState) {
+            if ((this.GetMRDByIDOperationCompleted == null)) {
+                this.GetMRDByIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetMRDByIDOperationCompleted);
+            }
+            this.InvokeAsync("GetMRDByID", new object[] {
+                        ID}, this.GetMRDByIDOperationCompleted, userState);
+        }
+        
+        private void OnGetMRDByIDOperationCompleted(object arg) {
+            if ((this.GetMRDByIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetMRDByIDCompleted(this, new GetMRDByIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetMRDByEMR", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client GetMRDByEMR(string EMRNo) {
+            object[] results = this.Invoke("GetMRDByEMR", new object[] {
+                        EMRNo});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetMRDByEMRAsync(string EMRNo) {
+            this.GetMRDByEMRAsync(EMRNo, null);
+        }
+        
+        /// <remarks/>
+        public void GetMRDByEMRAsync(string EMRNo, object userState) {
+            if ((this.GetMRDByEMROperationCompleted == null)) {
+                this.GetMRDByEMROperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetMRDByEMROperationCompleted);
+            }
+            this.InvokeAsync("GetMRDByEMR", new object[] {
+                        EMRNo}, this.GetMRDByEMROperationCompleted, userState);
+        }
+        
+        private void OnGetMRDByEMROperationCompleted(object arg) {
+            if ((this.GetMRDByEMRCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetMRDByEMRCompleted(this, new GetMRDByEMRCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddMRD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -239,7 +417,33 @@ namespace SRHF.wrMRD {
         
         private string mRDNoField;
         
+        private string wardField;
+        
         private string iCDCodeField;
+        
+        private System.DateTime admissionDateField;
+        
+        private System.DateTime dischargeDateField;
+        
+        private string remarksField;
+        
+        private int hospitalDaysField;
+        
+        private string resultField;
+        
+        private string dischargedField;
+        
+        private string dischargedAliveField;
+        
+        private string dischargedDeathField;
+        
+        private string causeOfDeathField;
+        
+        private string directCauseField;
+        
+        private string antecedentCauseField;
+        
+        private string otherCauseField;
         
         /// <remarks/>
         public int ID {
@@ -292,12 +496,142 @@ namespace SRHF.wrMRD {
         }
         
         /// <remarks/>
+        public string Ward {
+            get {
+                return this.wardField;
+            }
+            set {
+                this.wardField = value;
+            }
+        }
+        
+        /// <remarks/>
         public string ICDCode {
             get {
                 return this.iCDCodeField;
             }
             set {
                 this.iCDCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime AdmissionDate {
+            get {
+                return this.admissionDateField;
+            }
+            set {
+                this.admissionDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DischargeDate {
+            get {
+                return this.dischargeDateField;
+            }
+            set {
+                this.dischargeDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Remarks {
+            get {
+                return this.remarksField;
+            }
+            set {
+                this.remarksField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int HospitalDays {
+            get {
+                return this.hospitalDaysField;
+            }
+            set {
+                this.hospitalDaysField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Discharged {
+            get {
+                return this.dischargedField;
+            }
+            set {
+                this.dischargedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DischargedAlive {
+            get {
+                return this.dischargedAliveField;
+            }
+            set {
+                this.dischargedAliveField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DischargedDeath {
+            get {
+                return this.dischargedDeathField;
+            }
+            set {
+                this.dischargedDeathField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CauseOfDeath {
+            get {
+                return this.causeOfDeathField;
+            }
+            set {
+                this.causeOfDeathField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DirectCause {
+            get {
+                return this.directCauseField;
+            }
+            set {
+                this.directCauseField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string AntecedentCause {
+            get {
+                return this.antecedentCauseField;
+            }
+            set {
+                this.antecedentCauseField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string OtherCause {
+            get {
+                return this.otherCauseField;
+            }
+            set {
+                this.otherCauseField = value;
             }
         }
     }
@@ -379,6 +713,136 @@ namespace SRHF.wrMRD {
             }
             set {
                 this.dsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetPatientMRDCompletedEventHandler(object sender, GetPatientMRDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetPatientMRDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetPatientMRDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public MRD Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((MRD)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetMRDByDateCompletedEventHandler(object sender, GetMRDByDateCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetMRDByDateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetMRDByDateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetMRDByDatesCompletedEventHandler(object sender, GetMRDByDatesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetMRDByDatesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetMRDByDatesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetMRDByIDCompletedEventHandler(object sender, GetMRDByIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetMRDByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetMRDByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public MRD Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((MRD)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetMRDByEMRCompletedEventHandler(object sender, GetMRDByEMRCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetMRDByEMRCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetMRDByEMRCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
             }
         }
     }

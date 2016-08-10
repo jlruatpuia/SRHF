@@ -32,6 +32,10 @@ namespace SRHF.wrICD {
         
         private System.Threading.SendOrPostCallback GetICDCodeOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetICDCodeByCodeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SearchICDCodeOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -74,6 +78,12 @@ namespace SRHF.wrICD {
         public event GetICDCodeCompletedEventHandler GetICDCodeCompleted;
         
         /// <remarks/>
+        public event GetICDCodeByCodeCompletedEventHandler GetICDCodeByCodeCompleted;
+        
+        /// <remarks/>
+        public event SearchICDCodeCompletedEventHandler SearchICDCodeCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetICDCode", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Server2Client GetICDCode() {
             object[] results = this.Invoke("GetICDCode", new object[0]);
@@ -97,6 +107,64 @@ namespace SRHF.wrICD {
             if ((this.GetICDCodeCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetICDCodeCompleted(this, new GetICDCodeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetICDCodeByCode", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ICD GetICDCodeByCode(string Code) {
+            object[] results = this.Invoke("GetICDCodeByCode", new object[] {
+                        Code});
+            return ((ICD)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetICDCodeByCodeAsync(string Code) {
+            this.GetICDCodeByCodeAsync(Code, null);
+        }
+        
+        /// <remarks/>
+        public void GetICDCodeByCodeAsync(string Code, object userState) {
+            if ((this.GetICDCodeByCodeOperationCompleted == null)) {
+                this.GetICDCodeByCodeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetICDCodeByCodeOperationCompleted);
+            }
+            this.InvokeAsync("GetICDCodeByCode", new object[] {
+                        Code}, this.GetICDCodeByCodeOperationCompleted, userState);
+        }
+        
+        private void OnGetICDCodeByCodeOperationCompleted(object arg) {
+            if ((this.GetICDCodeByCodeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetICDCodeByCodeCompleted(this, new GetICDCodeByCodeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SearchICDCode", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client SearchICDCode(string query) {
+            object[] results = this.Invoke("SearchICDCode", new object[] {
+                        query});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SearchICDCodeAsync(string query) {
+            this.SearchICDCodeAsync(query, null);
+        }
+        
+        /// <remarks/>
+        public void SearchICDCodeAsync(string query, object userState) {
+            if ((this.SearchICDCodeOperationCompleted == null)) {
+                this.SearchICDCodeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSearchICDCodeOperationCompleted);
+            }
+            this.InvokeAsync("SearchICDCode", new object[] {
+                        query}, this.SearchICDCodeOperationCompleted, userState);
+        }
+        
+        private void OnSearchICDCodeOperationCompleted(object arg) {
+            if ((this.SearchICDCodeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SearchICDCodeCompleted(this, new SearchICDCodeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -201,6 +269,39 @@ namespace SRHF.wrICD {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ICD {
+        
+        private string codeField;
+        
+        private string descriptionField;
+        
+        /// <remarks/>
+        public string Code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void GetICDCodeCompletedEventHandler(object sender, GetICDCodeCompletedEventArgs e);
     
@@ -213,6 +314,58 @@ namespace SRHF.wrICD {
         private object[] results;
         
         internal GetICDCodeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetICDCodeByCodeCompletedEventHandler(object sender, GetICDCodeByCodeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetICDCodeByCodeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetICDCodeByCodeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ICD Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ICD)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void SearchICDCodeCompletedEventHandler(object sender, SearchICDCodeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SearchICDCodeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SearchICDCodeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

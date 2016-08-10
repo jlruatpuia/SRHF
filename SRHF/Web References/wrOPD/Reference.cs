@@ -32,7 +32,11 @@ namespace SRHF.wrOPD {
         
         private System.Threading.SendOrPostCallback GetOPDOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetOPDByIDOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetOPDByDateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetOPDByEMROperationCompleted;
         
         private System.Threading.SendOrPostCallback GetOPDByDatesOperationCompleted;
         
@@ -92,7 +96,13 @@ namespace SRHF.wrOPD {
         public event GetOPDCompletedEventHandler GetOPDCompleted;
         
         /// <remarks/>
+        public event GetOPDByIDCompletedEventHandler GetOPDByIDCompleted;
+        
+        /// <remarks/>
         public event GetOPDByDateCompletedEventHandler GetOPDByDateCompleted;
+        
+        /// <remarks/>
+        public event GetOPDByEMRCompletedEventHandler GetOPDByEMRCompleted;
         
         /// <remarks/>
         public event GetOPDByDatesCompletedEventHandler GetOPDByDatesCompleted;
@@ -146,6 +156,35 @@ namespace SRHF.wrOPD {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetOPDByID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public OPD GetOPDByID(int ID) {
+            object[] results = this.Invoke("GetOPDByID", new object[] {
+                        ID});
+            return ((OPD)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetOPDByIDAsync(int ID) {
+            this.GetOPDByIDAsync(ID, null);
+        }
+        
+        /// <remarks/>
+        public void GetOPDByIDAsync(int ID, object userState) {
+            if ((this.GetOPDByIDOperationCompleted == null)) {
+                this.GetOPDByIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetOPDByIDOperationCompleted);
+            }
+            this.InvokeAsync("GetOPDByID", new object[] {
+                        ID}, this.GetOPDByIDOperationCompleted, userState);
+        }
+        
+        private void OnGetOPDByIDOperationCompleted(object arg) {
+            if ((this.GetOPDByIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetOPDByIDCompleted(this, new GetOPDByIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetOPDByDate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Server2Client GetOPDByDate(System.DateTime dt) {
             object[] results = this.Invoke("GetOPDByDate", new object[] {
@@ -171,6 +210,35 @@ namespace SRHF.wrOPD {
             if ((this.GetOPDByDateCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetOPDByDateCompleted(this, new GetOPDByDateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetOPDByEMR", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client GetOPDByEMR(string EMRNo) {
+            object[] results = this.Invoke("GetOPDByEMR", new object[] {
+                        EMRNo});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetOPDByEMRAsync(string EMRNo) {
+            this.GetOPDByEMRAsync(EMRNo, null);
+        }
+        
+        /// <remarks/>
+        public void GetOPDByEMRAsync(string EMRNo, object userState) {
+            if ((this.GetOPDByEMROperationCompleted == null)) {
+                this.GetOPDByEMROperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetOPDByEMROperationCompleted);
+            }
+            this.InvokeAsync("GetOPDByEMR", new object[] {
+                        EMRNo}, this.GetOPDByEMROperationCompleted, userState);
+        }
+        
+        private void OnGetOPDByEMROperationCompleted(object arg) {
+            if ((this.GetOPDByEMRCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetOPDByEMRCompleted(this, new GetOPDByEMRCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -530,6 +598,8 @@ namespace SRHF.wrOPD {
         
         private int oPDNoField;
         
+        private string casesField;
+        
         /// <remarks/>
         public int ID {
             get {
@@ -599,6 +669,16 @@ namespace SRHF.wrOPD {
                 this.oPDNoField = value;
             }
         }
+        
+        /// <remarks/>
+        public string Cases {
+            get {
+                return this.casesField;
+            }
+            set {
+                this.casesField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -629,6 +709,32 @@ namespace SRHF.wrOPD {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetOPDByIDCompletedEventHandler(object sender, GetOPDByIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetOPDByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetOPDByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public OPD Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((OPD)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void GetOPDByDateCompletedEventHandler(object sender, GetOPDByDateCompletedEventArgs e);
     
     /// <remarks/>
@@ -640,6 +746,32 @@ namespace SRHF.wrOPD {
         private object[] results;
         
         internal GetOPDByDateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetOPDByEMRCompletedEventHandler(object sender, GetOPDByEMRCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetOPDByEMRCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetOPDByEMRCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

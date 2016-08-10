@@ -27,4 +27,34 @@ public class wsICD : System.Web.Services.WebService
         return sc;
     }
 
+    [WebMethod]
+    public ICD GetICDCodeByCode(string Code)
+    {
+        ICD i = new ICD();
+        MySqlCommand cmd = new MySqlCommand("SELECT col7, col9 FROM icd WHERE col7='" + Code + "'", cm);
+        try
+        {
+            cm.Open();
+            MySqlDataReader rd = cmd.ExecuteReader();
+            rd.Read();
+            i.Code = rd[0].ToString();
+            i.Description = rd[1].ToString();
+        }
+        catch {; }
+        finally { cm.Close(); }
+        return i;
+    }
+
+    [WebMethod]
+    public Server2Client SearchICDCode(string query)
+    {
+        Server2Client sc = new Server2Client();
+        MySqlCommand cmd = new MySqlCommand("SELECT col7, col9 FROM icd WHERE col7 LIKE '%" + query + "%' OR col9 LIKE '%" + query + "%'", cm);
+        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        sc.dt = ds.Tables[0];
+        return sc;
+    }
+
 }

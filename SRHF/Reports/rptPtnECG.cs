@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace SRHF.Reports
 {
-    public partial class frmECGReport : DevExpress.XtraReports.UI.XtraReport
+    public partial class rptPtnECG : DevExpress.XtraReports.UI.XtraReport
     {
-        public frmECGReport()
+        public rptPtnECG()
         {
             InitializeComponent();
         }

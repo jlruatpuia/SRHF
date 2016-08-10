@@ -60,6 +60,8 @@
             this.colCRG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEdit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colDel = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repDel = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -77,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDel)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -123,6 +126,7 @@
             this.btnPrint.TabIndex = 8;
             this.btnPrint.Text = "&Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnSearch
             // 
@@ -240,7 +244,8 @@
             this.grd.MainView = this.grv;
             this.grd.Name = "grd";
             this.grd.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btnEdit});
+            this.btnEdit,
+            this.repDel});
             this.grd.Size = new System.Drawing.Size(889, 431);
             this.grd.TabIndex = 0;
             this.grd.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -262,6 +267,7 @@
             this.colRCP,
             this.colCRG,
             this.colEdit,
+            this.colDel,
             this.colID});
             this.grv.GridControl = this.grd;
             this.grv.GroupCount = 1;
@@ -422,16 +428,36 @@
             this.colEdit.OptionsColumn.ReadOnly = true;
             this.colEdit.Visible = true;
             this.colEdit.VisibleIndex = 10;
-            this.colEdit.Width = 49;
+            this.colEdit.Width = 42;
             // 
             // btnEdit
             // 
             this.btnEdit.AutoHeight = false;
             this.btnEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.ReadOnly = true;
             this.btnEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // colDel
+            // 
+            this.colDel.Caption = "Delete";
+            this.colDel.ColumnEdit = this.repDel;
+            this.colDel.Name = "colDel";
+            this.colDel.OptionsColumn.AllowEdit = false;
+            this.colDel.OptionsColumn.AllowFocus = false;
+            this.colDel.OptionsColumn.ReadOnly = true;
+            this.colDel.Visible = true;
+            this.colDel.VisibleIndex = 11;
+            this.colDel.Width = 49;
+            // 
+            // repDel
+            // 
+            this.repDel.AutoHeight = false;
+            this.repDel.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+            this.repDel.Name = "repDel";
+            this.repDel.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // colID
             // 
@@ -468,6 +494,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -505,5 +532,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnEdit;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
+        private DevExpress.XtraGrid.Columns.GridColumn colDel;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repDel;
     }
 }

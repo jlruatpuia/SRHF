@@ -34,7 +34,7 @@ namespace SRHF.wrECG {
         
         private System.Threading.SendOrPostCallback GetECGByIDOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetECGByPatientOperationCompleted;
+        private System.Threading.SendOrPostCallback GetECGByEMROperationCompleted;
         
         private System.Threading.SendOrPostCallback GetECGByDateOperationCompleted;
         
@@ -97,7 +97,7 @@ namespace SRHF.wrECG {
         public event GetECGByIDCompletedEventHandler GetECGByIDCompleted;
         
         /// <remarks/>
-        public event GetECGByPatientCompletedEventHandler GetECGByPatientCompleted;
+        public event GetECGByEMRCompletedEventHandler GetECGByEMRCompleted;
         
         /// <remarks/>
         public event GetECGByDateCompletedEventHandler GetECGByDateCompleted;
@@ -180,31 +180,31 @@ namespace SRHF.wrECG {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetECGByPatient", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Server2Client GetECGByPatient(string EMRNo) {
-            object[] results = this.Invoke("GetECGByPatient", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetECGByEMR", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client GetECGByEMR(string EMRNo) {
+            object[] results = this.Invoke("GetECGByEMR", new object[] {
                         EMRNo});
             return ((Server2Client)(results[0]));
         }
         
         /// <remarks/>
-        public void GetECGByPatientAsync(string EMRNo) {
-            this.GetECGByPatientAsync(EMRNo, null);
+        public void GetECGByEMRAsync(string EMRNo) {
+            this.GetECGByEMRAsync(EMRNo, null);
         }
         
         /// <remarks/>
-        public void GetECGByPatientAsync(string EMRNo, object userState) {
-            if ((this.GetECGByPatientOperationCompleted == null)) {
-                this.GetECGByPatientOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetECGByPatientOperationCompleted);
+        public void GetECGByEMRAsync(string EMRNo, object userState) {
+            if ((this.GetECGByEMROperationCompleted == null)) {
+                this.GetECGByEMROperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetECGByEMROperationCompleted);
             }
-            this.InvokeAsync("GetECGByPatient", new object[] {
-                        EMRNo}, this.GetECGByPatientOperationCompleted, userState);
+            this.InvokeAsync("GetECGByEMR", new object[] {
+                        EMRNo}, this.GetECGByEMROperationCompleted, userState);
         }
         
-        private void OnGetECGByPatientOperationCompleted(object arg) {
-            if ((this.GetECGByPatientCompleted != null)) {
+        private void OnGetECGByEMROperationCompleted(object arg) {
+            if ((this.GetECGByEMRCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetECGByPatientCompleted(this, new GetECGByPatientCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.GetECGByEMRCompleted(this, new GetECGByEMRCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -713,17 +713,17 @@ namespace SRHF.wrECG {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void GetECGByPatientCompletedEventHandler(object sender, GetECGByPatientCompletedEventArgs e);
+    public delegate void GetECGByEMRCompletedEventHandler(object sender, GetECGByEMRCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetECGByPatientCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetECGByEMRCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal GetECGByPatientCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal GetECGByEMRCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

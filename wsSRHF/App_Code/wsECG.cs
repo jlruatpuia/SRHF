@@ -59,10 +59,10 @@ public class wsECG : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public Server2Client GetECGByPatient(string EMRNo)
+    public Server2Client GetECGByEMR(string EMRNo)
     {
         Server2Client sc = new Server2Client();
-        MySqlCommand cmd = new MySqlCommand("ID, I_Date, DailyNo, MonthlyNo, EMRNo, Diagnosis, ReceiptNo, Remarks, Charge FROM ecg WHERE EMRNo='" + EMRNo + "'", cm);
+        MySqlCommand cmd = new MySqlCommand("SELECT I_Date, EMRNo, Diagnosis, ReceiptNo, Remarks, Charge FROM ecg WHERE EMRNo='" + EMRNo + "' ORDER BY I_Date", cm);
         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
         DataSet ds = new DataSet();
         da.Fill(ds);
@@ -76,7 +76,7 @@ public class wsECG : System.Web.Services.WebService
     {
         Server2Client sc = new Server2Client();
         string d = Settings.getDate(dt);
-        MySqlCommand cmd = new MySqlCommand("SELECT ecg.ID, ecg.I_Date, ecg.DailyNo, ecg.MonthlyNo, patient.PName, patient.Address, patient.Age, patient.Sex, ecg.Diagnosis, ecg.ReceiptNo, ecg.Remarks, ecg.Charge FROM ecg INNER JOIN patient ON ecg.EMRNo = patient.EMRNo WHERE DATE(I_DATE)='" + d + "'", cm);
+        MySqlCommand cmd = new MySqlCommand("SELECT ecg.ID, ecg.I_Date, ecg.DailyNo, ecg.MonthlyNo, ecg.EMRNo, patient.PName, patient.Address, patient.Age, CASE WHEN patient.Sex='Male' THEN 'M' ELSE 'F' END AS Sex, ecg.Diagnosis, ecg.ReceiptNo, ecg.Remarks, ecg.Charge FROM ecg INNER JOIN patient ON ecg.EMRNo = patient.EMRNo WHERE DATE(I_DATE)='" + d + "'", cm);
         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
         DataSet ds = new DataSet();
         da.Fill(ds);
@@ -91,7 +91,7 @@ public class wsECG : System.Web.Services.WebService
         Server2Client sc = new Server2Client();
         string d1 = Settings.getDate(df);
         string d2 = Settings.getDate(dt);
-        MySqlCommand cmd = new MySqlCommand("SELECT ecg.ID, ecg.I_Date, ecg.DailyNo, ecg.MonthlyNo, patient.PName, patient.Address, patient.Age, patient.Sex, ecg.Diagnosis, ecg.ReceiptNo, ecg.Remarks, ecg.Charge FROM ecg INNER JOIN patient ON ecg.EMRNo = patient.EMRNo WHERE DATE(I_DATE) BETWEEN '" + d1 + "' AND '" + d2 + "'", cm);
+        MySqlCommand cmd = new MySqlCommand("SELECT ecg.ID, ecg.I_Date, ecg.DailyNo, ecg.MonthlyNo, ecg.EMRNo, patient.PName, patient.Address, patient.Age, patient.Sex, ecg.Diagnosis, ecg.ReceiptNo, ecg.Remarks, ecg.Charge FROM ecg INNER JOIN patient ON ecg.EMRNo = patient.EMRNo WHERE DATE(I_DATE) BETWEEN '" + d1 + "' AND '" + d2 + "'", cm);
         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
         DataSet ds = new DataSet();
         da.Fill(ds);

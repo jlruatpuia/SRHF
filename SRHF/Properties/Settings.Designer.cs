@@ -106,5 +106,75 @@ namespace SRHF.Properties {
                 return ((string)(this["SRHF_wrMRD_wsMRD"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49983/wsLAB.asmx")]
+        public string SRHF_wrLAB_wsLAB {
+            get {
+                return ((string)(this["SRHF_wrLAB_wsLAB"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49983/wsXRAY.asmx")]
+        public string SRHF_wrXRAY_wsXRAY {
+            get {
+                return ((string)(this["SRHF_wrXRAY_wsXRAY"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49983/wsUSG.asmx")]
+        public string SRHF_wrUSG_wsUSG {
+            get {
+                return ((string)(this["SRHF_wrUSG_wsUSG"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49983/wsCasualty.asmx")]
+        public string SRHF_wrCasualty_wsCasualty {
+            get {
+                return ((string)(this["SRHF_wrCasualty_wsCasualty"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49983/wsSettings.asmx")]
+        public string SRHF_wrSettings_wsSettings {
+            get {
+                return ((string)(this["SRHF_wrSettings_wsSettings"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49983/wsOTH.asmx")]
+        public string SRHF_wrOTH_wsOTH {
+            get {
+                return ((string)(this["SRHF_wrOTH_wsOTH"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49983/wsRSBY.asmx")]
+        public string SRHF_wrRSBY_wsRSBY {
+            get {
+                return ((string)(this["SRHF_wrRSBY_wsRSBY"]));
+            }
+        }
     }
 }

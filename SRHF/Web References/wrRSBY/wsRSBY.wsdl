@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetSerialNo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSerialNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSerialNoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRSBYByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRSBYByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRSBYByIDResult" type="tns:RSBY" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RSBY">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SlNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRDNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyHead" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ward" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdmissionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DischargeDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Packages" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalBill" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActualAmount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="HospitalShare" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="URN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllRSBY">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllRSBYResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllRSBYResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Server2Client">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="value" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="dt">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="ds">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRSBYByMRD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MRDNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRSBYByMRDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRSBYByMRDResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRSBYByRemarks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRSBYByRemarksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRSBYByRemarksResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertRSBY">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="r" type="tns:RSBY" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertRSBYResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertRSBYResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRSBY">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="r" type="tns:RSBY" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRSBYResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateRSBYResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRSBY">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRSBYResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteRSBYResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllHealthCare">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllHealthCareResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllHealthCareResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHealthCareByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHealthCareByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHealthCareByIDResult" type="tns:HCARE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="HCARE">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnrollmentNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRDNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyHead" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountClaimed" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Diagnosis" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdmissionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DischargeDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertHCare">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="h" type="tns:HCARE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertHCareResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertHCareResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHCare">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="h" type="tns:HCARE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHCareResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateHCareResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteHCare">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteHCareResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteHCareResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSerialNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSerialNo" />
+  </wsdl:message>
+  <wsdl:message name="GetSerialNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSerialNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRSBYByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRSBYByID" />
+  </wsdl:message>
+  <wsdl:message name="GetRSBYByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRSBYByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllRSBYSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllRSBY" />
+  </wsdl:message>
+  <wsdl:message name="GetAllRSBYSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllRSBYResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRSBYByMRDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRSBYByMRD" />
+  </wsdl:message>
+  <wsdl:message name="GetRSBYByMRDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRSBYByMRDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRSBYByRemarksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRSBYByRemarks" />
+  </wsdl:message>
+  <wsdl:message name="GetRSBYByRemarksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRSBYByRemarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertRSBYSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertRSBY" />
+  </wsdl:message>
+  <wsdl:message name="InsertRSBYSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertRSBYResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRSBYSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRSBY" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRSBYSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRSBYResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRSBYSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteRSBY" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRSBYSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteRSBYResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllHealthCareSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllHealthCare" />
+  </wsdl:message>
+  <wsdl:message name="GetAllHealthCareSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllHealthCareResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHealthCareByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHealthCareByID" />
+  </wsdl:message>
+  <wsdl:message name="GetHealthCareByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHealthCareByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertHCareSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertHCare" />
+  </wsdl:message>
+  <wsdl:message name="InsertHCareSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertHCareResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHCareSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateHCare" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHCareSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateHCareResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHCareSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteHCare" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHCareSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteHCareResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsRSBYSoap">
+    <wsdl:operation name="GetSerialNo">
+      <wsdl:input message="tns:GetSerialNoSoapIn" />
+      <wsdl:output message="tns:GetSerialNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRSBYByID">
+      <wsdl:input message="tns:GetRSBYByIDSoapIn" />
+      <wsdl:output message="tns:GetRSBYByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRSBY">
+      <wsdl:input message="tns:GetAllRSBYSoapIn" />
+      <wsdl:output message="tns:GetAllRSBYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRSBYByMRD">
+      <wsdl:input message="tns:GetRSBYByMRDSoapIn" />
+      <wsdl:output message="tns:GetRSBYByMRDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRSBYByRemarks">
+      <wsdl:input message="tns:GetRSBYByRemarksSoapIn" />
+      <wsdl:output message="tns:GetRSBYByRemarksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRSBY">
+      <wsdl:input message="tns:InsertRSBYSoapIn" />
+      <wsdl:output message="tns:InsertRSBYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRSBY">
+      <wsdl:input message="tns:UpdateRSBYSoapIn" />
+      <wsdl:output message="tns:UpdateRSBYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRSBY">
+      <wsdl:input message="tns:DeleteRSBYSoapIn" />
+      <wsdl:output message="tns:DeleteRSBYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHealthCare">
+      <wsdl:input message="tns:GetAllHealthCareSoapIn" />
+      <wsdl:output message="tns:GetAllHealthCareSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthCareByID">
+      <wsdl:input message="tns:GetHealthCareByIDSoapIn" />
+      <wsdl:output message="tns:GetHealthCareByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertHCare">
+      <wsdl:input message="tns:InsertHCareSoapIn" />
+      <wsdl:output message="tns:InsertHCareSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHCare">
+      <wsdl:input message="tns:UpdateHCareSoapIn" />
+      <wsdl:output message="tns:UpdateHCareSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHCare">
+      <wsdl:input message="tns:DeleteHCareSoapIn" />
+      <wsdl:output message="tns:DeleteHCareSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsRSBYSoap" type="tns:wsRSBYSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSerialNo">
+      <soap:operation soapAction="http://tempuri.org/GetSerialNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRSBYByID">
+      <soap:operation soapAction="http://tempuri.org/GetRSBYByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRSBY">
+      <soap:operation soapAction="http://tempuri.org/GetAllRSBY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRSBYByMRD">
+      <soap:operation soapAction="http://tempuri.org/GetRSBYByMRD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRSBYByRemarks">
+      <soap:operation soapAction="http://tempuri.org/GetRSBYByRemarks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRSBY">
+      <soap:operation soapAction="http://tempuri.org/InsertRSBY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRSBY">
+      <soap:operation soapAction="http://tempuri.org/UpdateRSBY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRSBY">
+      <soap:operation soapAction="http://tempuri.org/DeleteRSBY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHealthCare">
+      <soap:operation soapAction="http://tempuri.org/GetAllHealthCare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthCareByID">
+      <soap:operation soapAction="http://tempuri.org/GetHealthCareByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHCare">
+      <soap:operation soapAction="http://tempuri.org/InsertHCare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHCare">
+      <soap:operation soapAction="http://tempuri.org/UpdateHCare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHCare">
+      <soap:operation soapAction="http://tempuri.org/DeleteHCare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsRSBYSoap12" type="tns:wsRSBYSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSerialNo">
+      <soap12:operation soapAction="http://tempuri.org/GetSerialNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRSBYByID">
+      <soap12:operation soapAction="http://tempuri.org/GetRSBYByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRSBY">
+      <soap12:operation soapAction="http://tempuri.org/GetAllRSBY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRSBYByMRD">
+      <soap12:operation soapAction="http://tempuri.org/GetRSBYByMRD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRSBYByRemarks">
+      <soap12:operation soapAction="http://tempuri.org/GetRSBYByRemarks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRSBY">
+      <soap12:operation soapAction="http://tempuri.org/InsertRSBY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRSBY">
+      <soap12:operation soapAction="http://tempuri.org/UpdateRSBY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRSBY">
+      <soap12:operation soapAction="http://tempuri.org/DeleteRSBY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHealthCare">
+      <soap12:operation soapAction="http://tempuri.org/GetAllHealthCare" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthCareByID">
+      <soap12:operation soapAction="http://tempuri.org/GetHealthCareByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHCare">
+      <soap12:operation soapAction="http://tempuri.org/InsertHCare" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHCare">
+      <soap12:operation soapAction="http://tempuri.org/UpdateHCare" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHCare">
+      <soap12:operation soapAction="http://tempuri.org/DeleteHCare" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsRSBY">
+    <wsdl:port name="wsRSBYSoap" binding="tns:wsRSBYSoap">
+      <soap:address location="http://localhost:49983/wsRSBY.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsRSBYSoap12" binding="tns:wsRSBYSoap12">
+      <soap12:address location="http://localhost:49983/wsRSBY.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

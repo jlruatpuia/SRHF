@@ -1,12 +1,7 @@
-﻿using SRHF.Reports;
+﻿using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraReports.UI;
+using SRHF.Reports;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SRHF.Forms
@@ -17,7 +12,8 @@ namespace SRHF.Forms
         {
             InitializeComponent();
             cboDuration.SelectedIndex = 0;
-
+            dtpFr.Value = DateTime.Now.Date;
+            dtpTo.Value = DateTime.Now.Date;
         }
 
         private void cboDuration_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,27 +28,63 @@ namespace SRHF.Forms
         {
             wrOPD.wsOPD opd = new wrOPD.wsOPD();
             wrOPD.Server2Client sc = new wrOPD.Server2Client();
-            rptRegisteredPatients rpt = new rptRegisteredPatients();
 
             if (cboDuration.SelectedIndex == 0)
             {
                 sc = opd.GetOPDByDate(dtpFr.Value.Date);
-                rpt.lbIDT.Text = "ON " + dtpFr.Value.Date.ToShortDateString();
             }
             else
             {
                 sc = opd.GetOPDByDates(dtpFr.Value.Date, dtpTo.Value.Date);
-                rpt.lbIDT.Text = "BETWEEN " + dtpFr.Value.ToShortDateString() + " AND " + dtpTo.Value.ToShortDateString();
             }
+            grd.DataSource = sc.dt;
+        }
 
-            rpt.DataSource = sc.dt;
-            rpt.lbEMR.DataBindings.Add("Text", null, "EMRNo");
-            rpt.lbPNM.DataBindings.Add("Text", null, "PName");
-            rpt.lbADR.DataBindings.Add("Text", null, "Address");
-            rpt.lbAGE.DataBindings.Add("Text", null, "Age");
-            rpt.lbSEX.DataBindings.Add("Text", null, "Sex");
-            dv.PrintingSystem = rpt.PrintingSystem;
-            rpt.CreateDocument(true);
+        private void grv_Click(object sender, EventArgs e)
+        {
+            GridHitInfo hi = grv.CalcHitInfo(grd.PointToClient(MousePosition));
+            if (hi.InRowCell && hi.Column == colEdt)
+            {
+                if (MessageBox.Show("Do you really want to edit this data?", "Confirm edit", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    int oid = Convert.ToInt32(grv.GetFocusedRowCellValue(colID));
+                    int pid = Convert.ToInt32(grv.GetFocusedRowCellValue(colPID));
+                    frmOPD frm = new frmOPD(oid, pid);
+                    frm.ShowDialog();
+                    btnSearch_Click(null, null);
+                }
+            }
+            else if (hi.InRowCell && hi.Column == colDel)
+            {
+                if (MessageBox.Show("Are you sure you want to delete this record?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    wrOPD.wsOPD opd = new wrOPD.wsOPD();
+                    wrOPD.Server2Client sc = new wrOPD.Server2Client();
+                    wrOPD.OPD o = new wrOPD.OPD();
+                    o.ID = Convert.ToInt32(grv.GetFocusedRowCellValue(colID));
+                    sc = opd.DeleteOPD(o);
+
+                    if (sc.message == null)
+                    {
+                        MessageBox.Show("Record deleted!", "Delete success");
+                        btnSearch_Click(null, null);
+                    }
+                    else
+                    {
+                        MessageBox.Show(sc.message, "Error");
+                    }
+                }
+            }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            rptOPDReport rpt;
+            if (cboDuration.SelectedIndex == 0)
+                rpt = new rptOPDReport(dtpFr.Value.Date);
+            else
+                rpt = new rptOPDReport(dtpFr.Value.Date, dtpTo.Value.Date);
+            rpt.ShowPreviewDialog();
         }
     }
 }

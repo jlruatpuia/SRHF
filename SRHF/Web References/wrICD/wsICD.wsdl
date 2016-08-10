@@ -36,6 +36,40 @@
           </s:element>
         </s:sequence>
       </s:complexType>
+      <s:element name="GetICDCodeByCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetICDCodeByCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetICDCodeByCodeResult" type="tns:ICD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ICD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchICDCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchICDCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchICDCodeResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetICDCodeSoapIn">
@@ -44,10 +78,30 @@
   <wsdl:message name="GetICDCodeSoapOut">
     <wsdl:part name="parameters" element="tns:GetICDCodeResponse" />
   </wsdl:message>
+  <wsdl:message name="GetICDCodeByCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetICDCodeByCode" />
+  </wsdl:message>
+  <wsdl:message name="GetICDCodeByCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetICDCodeByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchICDCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchICDCode" />
+  </wsdl:message>
+  <wsdl:message name="SearchICDCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchICDCodeResponse" />
+  </wsdl:message>
   <wsdl:portType name="wsICDSoap">
     <wsdl:operation name="GetICDCode">
       <wsdl:input message="tns:GetICDCodeSoapIn" />
       <wsdl:output message="tns:GetICDCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetICDCodeByCode">
+      <wsdl:input message="tns:GetICDCodeByCodeSoapIn" />
+      <wsdl:output message="tns:GetICDCodeByCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchICDCode">
+      <wsdl:input message="tns:SearchICDCodeSoapIn" />
+      <wsdl:output message="tns:SearchICDCodeSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="wsICDSoap" type="tns:wsICDSoap">
@@ -61,11 +115,47 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetICDCodeByCode">
+      <soap:operation soapAction="http://tempuri.org/GetICDCodeByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchICDCode">
+      <soap:operation soapAction="http://tempuri.org/SearchICDCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="wsICDSoap12" type="tns:wsICDSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetICDCode">
       <soap12:operation soapAction="http://tempuri.org/GetICDCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetICDCodeByCode">
+      <soap12:operation soapAction="http://tempuri.org/GetICDCodeByCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchICDCode">
+      <soap12:operation soapAction="http://tempuri.org/SearchICDCode" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

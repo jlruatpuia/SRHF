@@ -26,5 +26,26 @@
     <Setting Name="SRHF_wrMRD_wsMRD" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:49983/wsMRD.asmx</Value>
     </Setting>
+    <Setting Name="SRHF_wrLAB_wsLAB" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsLAB.asmx</Value>
+    </Setting>
+    <Setting Name="SRHF_wrXRAY_wsXRAY" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsXRAY.asmx</Value>
+    </Setting>
+    <Setting Name="SRHF_wrUSG_wsUSG" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsUSG.asmx</Value>
+    </Setting>
+    <Setting Name="SRHF_wrCasualty_wsCasualty" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsCasualty.asmx</Value>
+    </Setting>
+    <Setting Name="SRHF_wrSettings_wsSettings" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsSettings.asmx</Value>
+    </Setting>
+    <Setting Name="SRHF_wrOTH_wsOTH" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsOTH.asmx</Value>
+    </Setting>
+    <Setting Name="SRHF_wrRSBY_wsRSBY" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:49983/wsRSBY.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

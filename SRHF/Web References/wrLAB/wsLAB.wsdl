@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLabRecord">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLabRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLabRecordResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Server2Client">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="value" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="dt">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="ds">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLabRecordByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabRecordByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLabRecordByIDResult" type="tns:LAB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LAB">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="I_Date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SlNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DailyNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiptNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMRNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ward" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRDNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestPerformed" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Charge" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLabRecordByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabRecordByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLabRecordByDateResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabRecordByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="df" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabRecordByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLabRecordByDatesResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabRecordByEMR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EMR" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabRecordByEMRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLabRecordByEMRResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYearlySerialNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYearlySerialNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetYearlySerialNoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailySerialNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailySerialNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDailySerialNoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWardAutoComplete">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWardAutoCompleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWardAutoCompleteResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTestsAutoComplete">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTestsAutoCompleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTestsAutoCompleteResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLabRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:LAB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLabRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddLabRecordResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLabRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:LAB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLabRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateLabRecordResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteLabRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:LAB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteLabRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteLabRecordResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLabRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLabRecord" />
+  </wsdl:message>
+  <wsdl:message name="GetLabRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLabRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLabRecordByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLabRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="GetLabRecordByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLabRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLabRecordByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLabRecordByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetLabRecordByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLabRecordByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLabRecordByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLabRecordByDates" />
+  </wsdl:message>
+  <wsdl:message name="GetLabRecordByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLabRecordByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLabRecordByEMRSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLabRecordByEMR" />
+  </wsdl:message>
+  <wsdl:message name="GetLabRecordByEMRSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLabRecordByEMRResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYearlySerialNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYearlySerialNo" />
+  </wsdl:message>
+  <wsdl:message name="GetYearlySerialNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYearlySerialNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDailySerialNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailySerialNo" />
+  </wsdl:message>
+  <wsdl:message name="GetDailySerialNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailySerialNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWardAutoCompleteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWardAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="GetWardAutoCompleteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWardAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTestsAutoCompleteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTestsAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="GetTestsAutoCompleteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTestsAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddLabRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:AddLabRecord" />
+  </wsdl:message>
+  <wsdl:message name="AddLabRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:AddLabRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLabRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLabRecord" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLabRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLabRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteLabRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteLabRecord" />
+  </wsdl:message>
+  <wsdl:message name="DeleteLabRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteLabRecordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsLABSoap">
+    <wsdl:operation name="GetLabRecord">
+      <wsdl:input message="tns:GetLabRecordSoapIn" />
+      <wsdl:output message="tns:GetLabRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByID">
+      <wsdl:input message="tns:GetLabRecordByIDSoapIn" />
+      <wsdl:output message="tns:GetLabRecordByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByDate">
+      <wsdl:input message="tns:GetLabRecordByDateSoapIn" />
+      <wsdl:output message="tns:GetLabRecordByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByDates">
+      <wsdl:input message="tns:GetLabRecordByDatesSoapIn" />
+      <wsdl:output message="tns:GetLabRecordByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByEMR">
+      <wsdl:input message="tns:GetLabRecordByEMRSoapIn" />
+      <wsdl:output message="tns:GetLabRecordByEMRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYearlySerialNo">
+      <wsdl:input message="tns:GetYearlySerialNoSoapIn" />
+      <wsdl:output message="tns:GetYearlySerialNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailySerialNo">
+      <wsdl:input message="tns:GetDailySerialNoSoapIn" />
+      <wsdl:output message="tns:GetDailySerialNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWardAutoComplete">
+      <wsdl:input message="tns:GetWardAutoCompleteSoapIn" />
+      <wsdl:output message="tns:GetWardAutoCompleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTestsAutoComplete">
+      <wsdl:input message="tns:GetTestsAutoCompleteSoapIn" />
+      <wsdl:output message="tns:GetTestsAutoCompleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLabRecord">
+      <wsdl:input message="tns:AddLabRecordSoapIn" />
+      <wsdl:output message="tns:AddLabRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLabRecord">
+      <wsdl:input message="tns:UpdateLabRecordSoapIn" />
+      <wsdl:output message="tns:UpdateLabRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLabRecord">
+      <wsdl:input message="tns:DeleteLabRecordSoapIn" />
+      <wsdl:output message="tns:DeleteLabRecordSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsLABSoap" type="tns:wsLABSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLabRecord">
+      <soap:operation soapAction="http://tempuri.org/GetLabRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByID">
+      <soap:operation soapAction="http://tempuri.org/GetLabRecordByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByDate">
+      <soap:operation soapAction="http://tempuri.org/GetLabRecordByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByDates">
+      <soap:operation soapAction="http://tempuri.org/GetLabRecordByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByEMR">
+      <soap:operation soapAction="http://tempuri.org/GetLabRecordByEMR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYearlySerialNo">
+      <soap:operation soapAction="http://tempuri.org/GetYearlySerialNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailySerialNo">
+      <soap:operation soapAction="http://tempuri.org/GetDailySerialNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWardAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/GetWardAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTestsAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/GetTestsAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLabRecord">
+      <soap:operation soapAction="http://tempuri.org/AddLabRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLabRecord">
+      <soap:operation soapAction="http://tempuri.org/UpdateLabRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLabRecord">
+      <soap:operation soapAction="http://tempuri.org/DeleteLabRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsLABSoap12" type="tns:wsLABSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLabRecord">
+      <soap12:operation soapAction="http://tempuri.org/GetLabRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByID">
+      <soap12:operation soapAction="http://tempuri.org/GetLabRecordByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetLabRecordByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByDates">
+      <soap12:operation soapAction="http://tempuri.org/GetLabRecordByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabRecordByEMR">
+      <soap12:operation soapAction="http://tempuri.org/GetLabRecordByEMR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYearlySerialNo">
+      <soap12:operation soapAction="http://tempuri.org/GetYearlySerialNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailySerialNo">
+      <soap12:operation soapAction="http://tempuri.org/GetDailySerialNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWardAutoComplete">
+      <soap12:operation soapAction="http://tempuri.org/GetWardAutoComplete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTestsAutoComplete">
+      <soap12:operation soapAction="http://tempuri.org/GetTestsAutoComplete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLabRecord">
+      <soap12:operation soapAction="http://tempuri.org/AddLabRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLabRecord">
+      <soap12:operation soapAction="http://tempuri.org/UpdateLabRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLabRecord">
+      <soap12:operation soapAction="http://tempuri.org/DeleteLabRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsLAB">
+    <wsdl:port name="wsLABSoap" binding="tns:wsLABSoap">
+      <soap:address location="http://localhost:49983/wsLAB.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsLABSoap12" binding="tns:wsLABSoap12">
+      <soap12:address location="http://localhost:49983/wsLAB.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

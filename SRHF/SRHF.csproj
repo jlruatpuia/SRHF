@@ -53,6 +53,7 @@
     <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v15.1.Extensions, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraWizard.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.EnterpriseServices" />
@@ -68,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Codes\MySettings.cs" />
     <Compile Include="Codes\WindowSettings.cs" />
     <Compile Include="Forms\frmAddUser.cs">
       <SubType>Form</SubType>
@@ -75,11 +77,65 @@
     <Compile Include="Forms\frmAddUser.Designer.cs">
       <DependentUpon>frmAddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmCasualty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCasualty.Designer.cs">
+      <DependentUpon>frmCasualty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDept.Designer.cs">
+      <DependentUpon>frmDept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDeptSingleEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDeptSingleEntry.Designer.cs">
+      <DependentUpon>frmDeptSingleEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDWD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDWD.Designer.cs">
+      <DependentUpon>frmDWD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmECG.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmECG.Designer.cs">
       <DependentUpon>frmECG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEditUser.Designer.cs">
+      <DependentUpon>frmEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHCare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHCare.Designer.cs">
+      <DependentUpon>frmHCare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmICD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmICD.Designer.cs">
+      <DependentUpon>frmICD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLAB.Designer.cs">
+      <DependentUpon>frmLAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMRD.cs">
       <SubType>Form</SubType>
@@ -87,11 +143,53 @@
     <Compile Include="Forms\frmMRD.Designer.cs">
       <DependentUpon>frmMRD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmDWDE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDWDE.Designer.cs">
+      <DependentUpon>frmDWDE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMSB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMSB.Designer.cs">
+      <DependentUpon>frmMSB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmOPD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmOPD.Designer.cs">
       <DependentUpon>frmOPD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOTH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOTH.Designer.cs">
+      <DependentUpon>frmOTH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPTN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPTN.Designer.cs">
+      <DependentUpon>frmPTN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRSBY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRSBY.Designer.cs">
+      <DependentUpon>frmRSBY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUSG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUSG.Designer.cs">
+      <DependentUpon>frmUSG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewCasualty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewCasualty.Designer.cs">
+      <DependentUpon>frmViewCasualty.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmViewECG.cs">
       <SubType>Form</SubType>
@@ -99,11 +197,29 @@
     <Compile Include="Forms\frmViewECG.Designer.cs">
       <DependentUpon>frmViewECG.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmViewICD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewICD.Designer.cs">
+      <DependentUpon>frmViewICD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewLAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewLAB.Designer.cs">
+      <DependentUpon>frmViewLAB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmViewMRD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmViewMRD.Designer.cs">
       <DependentUpon>frmViewMRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewMSB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewMSB.Designer.cs">
+      <DependentUpon>frmViewMSB.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmViewOPD.cs">
       <SubType>Form</SubType>
@@ -111,11 +227,47 @@
     <Compile Include="Forms\frmViewOPD.Designer.cs">
       <DependentUpon>frmViewOPD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmViewOT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewOT.Designer.cs">
+      <DependentUpon>frmViewOT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmViewUsers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmViewUsers.Designer.cs">
       <DependentUpon>frmViewUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewUSG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewUSG.Designer.cs">
+      <DependentUpon>frmViewUSG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewXRAY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewXRAY.Designer.cs">
+      <DependentUpon>frmViewXRAY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmWard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmWard.Designer.cs">
+      <DependentUpon>frmWard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmWWD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmWWD.Designer.cs">
+      <DependentUpon>frmWWD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmXRAY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmXRAY.Designer.cs">
+      <DependentUpon>frmXRAY.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -125,11 +277,119 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\frmECGReport.cs">
+    <Compile Include="Reports\rptDWD.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\frmECGReport.Designer.cs">
-      <DependentUpon>frmECGReport.cs</DependentUpon>
+    <Compile Include="Reports\rptDWD.Designer.cs">
+      <DependentUpon>rptDWD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptECGReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptECGReport.Designer.cs">
+      <DependentUpon>rptECGReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptHCare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptHCare.Designer.cs">
+      <DependentUpon>rptHCare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptLabRecord.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptLabRecord.Designer.cs">
+      <DependentUpon>rptLabRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptMonthlyBulletin.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptMonthlyBulletin.Designer.cs">
+      <DependentUpon>rptMonthlyBulletin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptCasualtyReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptCasualtyReport.Designer.cs">
+      <DependentUpon>rptCasualtyReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptMRD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptMRD.Designer.cs">
+      <DependentUpon>rptMRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptMSBPage1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptMSBPage1.Designer.cs">
+      <DependentUpon>rptMSBPage1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptMSBPage2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptMSBPage2.Designer.cs">
+      <DependentUpon>rptMSBPage2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptOPDReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptOPDReport.Designer.cs">
+      <DependentUpon>rptOPDReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptOTHReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptOTHReport.Designer.cs">
+      <DependentUpon>rptOTHReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPMR.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPMR.Designer.cs">
+      <DependentUpon>rptPMR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPtnDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPtnDetail.Designer.cs">
+      <DependentUpon>rptPtnDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPtnECG.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPtnECG.Designer.cs">
+      <DependentUpon>rptPtnECG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPtnLab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPtnLab.Designer.cs">
+      <DependentUpon>rptPtnLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPtnMRD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPtnMRD.Designer.cs">
+      <DependentUpon>rptPtnMRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPtnOth.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPtnOth.Designer.cs">
+      <DependentUpon>rptPtnOth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPtnUSG.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPtnUSG.Designer.cs">
+      <DependentUpon>rptPtnUSG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPtnXRAY.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPtnXRAY.Designer.cs">
+      <DependentUpon>rptPtnXRAY.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptRegisteredPatients.cs">
       <SubType>Component</SubType>
@@ -137,12 +397,118 @@
     <Compile Include="Reports\rptRegisteredPatients.Designer.cs">
       <DependentUpon>rptRegisteredPatients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptRSBY.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptRSBY.Designer.cs">
+      <DependentUpon>rptRSBY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptWWD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptWWD.Designer.cs">
+      <DependentUpon>rptWWD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCasualty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCasualty.Designer.cs">
+      <DependentUpon>ucCasualty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDW.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDW.Designer.cs">
+      <DependentUpon>ucDW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucECG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucECG.Designer.cs">
+      <DependentUpon>ucECG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucHCare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucHCare.Designer.cs">
+      <DependentUpon>ucHCare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucLAB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLAB.Designer.cs">
+      <DependentUpon>ucLAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucMRD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucMRD.Designer.cs">
+      <DependentUpon>ucMRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucOPD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucOPD.Designer.cs">
+      <DependentUpon>ucOPD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucOTH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucOTH.Designer.cs">
+      <DependentUpon>ucOTH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucPatients.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPatients.Designer.cs">
+      <DependentUpon>ucPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucPDT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPDT.Designer.cs">
+      <DependentUpon>ucPDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucPMR.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPMR.Designer.cs">
+      <DependentUpon>ucPMR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucRSBY.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucRSBY.Designer.cs">
+      <DependentUpon>ucRSBY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucUSG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucUSG.Designer.cs">
+      <DependentUpon>ucUSG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucXRAY.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucXRAY.Designer.cs">
+      <DependentUpon>ucXRAY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wrCasualty\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\wrECG\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\wrICD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wrLAB\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -157,7 +523,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\wrOTH\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\wrPatient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wrRSBY\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wrSettings\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -167,29 +548,114 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\wrUSG\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wrXRAY\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCasualty.resx">
+      <DependentUpon>frmCasualty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDept.resx">
+      <DependentUpon>frmDept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDeptSingleEntry.resx">
+      <DependentUpon>frmDeptSingleEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDWD.resx">
+      <DependentUpon>frmDWD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmECG.resx">
       <DependentUpon>frmECG.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEditUser.resx">
+      <DependentUpon>frmEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHCare.resx">
+      <DependentUpon>frmHCare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmICD.resx">
+      <DependentUpon>frmICD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLAB.resx">
+      <DependentUpon>frmLAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMRD.resx">
       <DependentUpon>frmMRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDWDE.resx">
+      <DependentUpon>frmDWDE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMSB.resx">
+      <DependentUpon>frmMSB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOPD.resx">
       <DependentUpon>frmOPD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOTH.resx">
+      <DependentUpon>frmOTH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPTN.resx">
+      <DependentUpon>frmPTN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRSBY.resx">
+      <DependentUpon>frmRSBY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUSG.resx">
+      <DependentUpon>frmUSG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewCasualty.resx">
+      <DependentUpon>frmViewCasualty.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmViewECG.resx">
       <DependentUpon>frmViewECG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewICD.resx">
+      <DependentUpon>frmViewICD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewLAB.resx">
+      <DependentUpon>frmViewLAB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmViewMRD.resx">
       <DependentUpon>frmViewMRD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewMSB.resx">
+      <DependentUpon>frmViewMSB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmViewOPD.resx">
       <DependentUpon>frmViewOPD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewOT.resx">
+      <DependentUpon>frmViewOT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmViewUsers.resx">
       <DependentUpon>frmViewUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewUSG.resx">
+      <DependentUpon>frmViewUSG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewXRAY.resx">
+      <DependentUpon>frmViewXRAY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmWard.resx">
+      <DependentUpon>frmWard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmWWD.resx">
+      <DependentUpon>frmWWD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmXRAY.resx">
+      <DependentUpon>frmXRAY.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -204,11 +670,113 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Reports\frmECGReport.resx">
-      <DependentUpon>frmECGReport.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\rptDWD.resx">
+      <DependentUpon>rptDWD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptECGReport.resx">
+      <DependentUpon>rptECGReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHCare.resx">
+      <DependentUpon>rptHCare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptLabRecord.resx">
+      <DependentUpon>rptLabRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptMonthlyBulletin.resx">
+      <DependentUpon>rptMonthlyBulletin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptCasualtyReport.resx">
+      <DependentUpon>rptCasualtyReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptMRD.resx">
+      <DependentUpon>rptMRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptMSBPage1.resx">
+      <DependentUpon>rptMSBPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptMSBPage2.resx">
+      <DependentUpon>rptMSBPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptOPDReport.resx">
+      <DependentUpon>rptOPDReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptOTHReport.resx">
+      <DependentUpon>rptOTHReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPMR.resx">
+      <DependentUpon>rptPMR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPtnDetail.resx">
+      <DependentUpon>rptPtnDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPtnECG.resx">
+      <DependentUpon>rptPtnECG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPtnLab.resx">
+      <DependentUpon>rptPtnLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPtnMRD.resx">
+      <DependentUpon>rptPtnMRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPtnOth.resx">
+      <DependentUpon>rptPtnOth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPtnUSG.resx">
+      <DependentUpon>rptPtnUSG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPtnXRAY.resx">
+      <DependentUpon>rptPtnXRAY.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptRegisteredPatients.resx">
       <DependentUpon>rptRegisteredPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptRSBY.resx">
+      <DependentUpon>rptRSBY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptWWD.resx">
+      <DependentUpon>rptWWD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCasualty.resx">
+      <DependentUpon>ucCasualty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDW.resx">
+      <DependentUpon>ucDW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucECG.resx">
+      <DependentUpon>ucECG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucHCare.resx">
+      <DependentUpon>ucHCare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucLAB.resx">
+      <DependentUpon>ucLAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucMRD.resx">
+      <DependentUpon>ucMRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucOPD.resx">
+      <DependentUpon>ucOPD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucOTH.resx">
+      <DependentUpon>ucOTH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPatients.resx">
+      <DependentUpon>ucPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPDT.resx">
+      <DependentUpon>ucPDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPMR.resx">
+      <DependentUpon>ucPMR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucRSBY.resx">
+      <DependentUpon>ucRSBY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucUSG.resx">
+      <DependentUpon>ucUSG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucXRAY.resx">
+      <DependentUpon>ucXRAY.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -219,6 +787,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Web References\wrCasualty\Casualty.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrCasualty\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wrCasualty\Server2Client.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrCasualty\wsCasualty.wsdl" />
     <None Include="Web References\wrECG\ECG.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -230,6 +809,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\wrECG\wsECG.wsdl" />
+    <None Include="Web References\wrICD\ICD.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\wrICD\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -238,6 +820,20 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\wrICD\wsICD.wsdl" />
+    <None Include="Web References\wrLAB\LAB.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrLAB\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wrLAB\Server2Client.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrLAB\wsLAB.wsdl" />
+    <None Include="Web References\wrMRD\MRD.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\wrMRD\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -246,6 +842,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\wrMRD\wsMRD.wsdl" />
+    <None Include="Web References\wrOPD\OPD.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\wrOPD\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -254,6 +853,20 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\wrOPD\wsOPD.wsdl" />
+    <None Include="Web References\wrOTH\OpTheater.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrOTH\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wrOTH\Server2Client.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrOTH\wsOTH.wsdl" />
+    <None Include="Web References\wrPatient\MSB.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\wrPatient\Patient.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -265,6 +878,28 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\wrPatient\wsPatient.wsdl" />
+    <None Include="Web References\wrRSBY\HCARE.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrRSBY\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wrRSBY\RSBY.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrRSBY\Server2Client.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrRSBY\wsRSBY.wsdl" />
+    <None Include="Web References\wrSettings\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wrSettings\Server2Client.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrSettings\wsSettings.wsdl" />
     <None Include="Web References\wrUsers\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -273,12 +908,41 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\wrUsers\wsUsers.wsdl" />
+    <None Include="Web References\wrUSG\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wrUSG\Server2Client.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrUSG\USG.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrUSG\wsUSG.wsdl" />
+    <None Include="Web References\wrXRAY\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wrXRAY\Server2Client.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wrXRAY\wsXRAY.wsdl" />
+    <None Include="Web References\wrXRAY\XRAY.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="srhf.ico" />
+    <None Include="Web References\wrRSBY\wsRSBY.disco" />
+    <None Include="Web References\wrOTH\wsOTH.disco" />
+    <None Include="Web References\wrSettings\wsSettings.disco" />
+    <None Include="Web References\wrCasualty\wsCasualty.disco" />
+    <None Include="Web References\wrUSG\wsUSG.disco" />
+    <None Include="Web References\wrXRAY\wsXRAY.disco" />
+    <None Include="Web References\wrLAB\wsLAB.disco" />
     <None Include="Web References\wrMRD\wsMRD.disco" />
     <None Include="Web References\wrICD\wsICD.disco" />
     <None Include="Web References\wrECG\wsECG.disco" />
@@ -293,6 +957,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:49983/wsCasualty.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wrCasualty\</RelPath>
+      <UpdateFromURL>http://localhost:49983/wsCasualty.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SRHF_wrCasualty_wsCasualty</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:49983/wsECG.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\wrECG\</RelPath>
@@ -314,6 +989,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>SRHF_wrICD_wsICD</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49983/wsLAB.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wrLAB\</RelPath>
+      <UpdateFromURL>http://localhost:49983/wsLAB.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SRHF_wrLAB_wsLAB</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:49983/wsMRD.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -337,6 +1023,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>SRHF_wrOPD_wsOPD</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49983/wsOTH.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wrOTH\</RelPath>
+      <UpdateFromURL>http://localhost:49983/wsOTH.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SRHF_wrOTH_wsOTH</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:49983/wsPatient.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\wrPatient\</RelPath>
@@ -347,6 +1044,28 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>SRHF_wrPatient_wsPatient</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49983/wsRSBY.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wrRSBY\</RelPath>
+      <UpdateFromURL>http://localhost:49983/wsRSBY.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SRHF_wrRSBY_wsRSBY</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49983/wsSettings.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wrSettings\</RelPath>
+      <UpdateFromURL>http://localhost:49983/wsSettings.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SRHF_wrSettings_wsSettings</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:49983/wsUsers.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -359,7 +1078,30 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>SRHF_wrUsers_wsUsers</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49983/wsUSG.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wrUSG\</RelPath>
+      <UpdateFromURL>http://localhost:49983/wsUSG.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SRHF_wrUSG_wsUSG</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:49983/wsXRAY.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wrXRAY\</RelPath>
+      <UpdateFromURL>http://localhost:49983/wsXRAY.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SRHF_wrXRAY_wsXRAY</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

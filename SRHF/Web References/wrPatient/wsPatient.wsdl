@@ -36,6 +36,44 @@
           </s:element>
         </s:sequence>
       </s:complexType>
+      <s:element name="GetPatientsByEmrName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientsByEmrNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPatientsByEmrNameResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientByMRD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MRD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientByMRDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPatientByMRDResult" type="tns:Patient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Patient">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMRNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Age" type="s:int" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetPatientByID">
         <s:complexType>
           <s:sequence>
@@ -50,16 +88,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Patient">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="EMRNo" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Age" type="s:int" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="GetPatientByEMR">
         <s:complexType>
           <s:sequence>
@@ -126,6 +154,274 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="CollectMSB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CollectMSBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CollectMSBResult" type="tns:MSB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MSB">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HospitalName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BedStrength" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPatientCareOPD" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPatientCareCAS" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPatientCareNew" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPatientCareOld" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAdmissionFromOPD" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAdmissionFromCAS" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationLAB" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationXRAY" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationENDO" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationUSG" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationECG" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationBRON" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationCOLON" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationRADIO" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationEEG" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationECHO" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationPFT" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationDIET" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationDIAL" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationCTSCAN" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationCHEMO" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestigationPMR" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationMajor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationMinor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryLiveMale" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryLiveFemale" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryStillMale" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryStillFemale" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DischargeAlive" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DischargeDeath" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DischargeDeathU48" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DischargeDeathO48" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PatientDischargedDays" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AverageLengthOfStay" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalInPatientCensus" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvgPercOfBedOccupancy" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BedTurnOverRate" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="DailyCensusOfIndoorPatientMAX" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="DailyCensusOfIndoorPatientMIN" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoOfAutopsy" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CaseReferredOutsideMizoram" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HealthCare" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RSBY" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecollectMSB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecollectMSBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecollectMSBResult" type="tns:MSB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMSB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:MSB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMSBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMSBResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMSB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:MSB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMSBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateMSBResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMSB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMSBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteMSBResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepartmentWiseData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepartmentWiseDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDepartmentWiseDataResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDepartmentWiseDataEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="d" type="tns:DepartmentWiseData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DepartmentWiseData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DMonth" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DYear" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeptNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeptName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NewCase" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OldCase" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Average" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddDepartmentWiseDataEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddDepartmentWiseDataEntryResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDepartmentWiseDataEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="d" type="tns:DepartmentWiseData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDepartmentWiseDataEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDepartmentWiseDataEntryResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDepartmentWiseDataEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="d" type="tns:DepartmentWiseData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDepartmentWiseDataEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteDepartmentWiseDataEntryResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWardWiseData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWardWiseDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWardWiseDataResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddWardWiseData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="d" type="tns:WardWiseData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WardWiseData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DMonth" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DYear" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WardNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WardName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Admission" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Discharge" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Death" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvgStay" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BedOccupancy" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddWardWiseDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddWardWiseDataResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWardWiseData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="d" type="tns:WardWiseData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWardWiseDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWardWiseDataResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteWardWiseData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="d" type="tns:WardWiseData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteWardWiseDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteWardWiseDataResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetPatientsSoapIn">
@@ -133,6 +429,18 @@
   </wsdl:message>
   <wsdl:message name="GetPatientsSoapOut">
     <wsdl:part name="parameters" element="tns:GetPatientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientsByEmrNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPatientsByEmrName" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientsByEmrNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPatientsByEmrNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientByMRDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPatientByMRD" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientByMRDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPatientByMRDResponse" />
   </wsdl:message>
   <wsdl:message name="GetPatientByIDSoapIn">
     <wsdl:part name="parameters" element="tns:GetPatientByID" />
@@ -170,10 +478,96 @@
   <wsdl:message name="DeletePatientSoapOut">
     <wsdl:part name="parameters" element="tns:DeletePatientResponse" />
   </wsdl:message>
+  <wsdl:message name="CollectMSBSoapIn">
+    <wsdl:part name="parameters" element="tns:CollectMSB" />
+  </wsdl:message>
+  <wsdl:message name="CollectMSBSoapOut">
+    <wsdl:part name="parameters" element="tns:CollectMSBResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecollectMSBSoapIn">
+    <wsdl:part name="parameters" element="tns:RecollectMSB" />
+  </wsdl:message>
+  <wsdl:message name="RecollectMSBSoapOut">
+    <wsdl:part name="parameters" element="tns:RecollectMSBResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMSBSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMSB" />
+  </wsdl:message>
+  <wsdl:message name="AddMSBSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMSBResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMSBSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMSB" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMSBSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMSBResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMSBSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMSB" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMSBSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMSBResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentWiseDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepartmentWiseData" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentWiseDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDepartmentWiseDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDepartmentWiseDataEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:AddDepartmentWiseDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="AddDepartmentWiseDataEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:AddDepartmentWiseDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentWiseDataEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDepartmentWiseDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentWiseDataEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDepartmentWiseDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDepartmentWiseDataEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDepartmentWiseDataEntry" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDepartmentWiseDataEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDepartmentWiseDataEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWardWiseDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWardWiseData" />
+  </wsdl:message>
+  <wsdl:message name="GetWardWiseDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWardWiseDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddWardWiseDataSoapIn">
+    <wsdl:part name="parameters" element="tns:AddWardWiseData" />
+  </wsdl:message>
+  <wsdl:message name="AddWardWiseDataSoapOut">
+    <wsdl:part name="parameters" element="tns:AddWardWiseDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWardWiseDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWardWiseData" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWardWiseDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWardWiseDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteWardWiseDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteWardWiseData" />
+  </wsdl:message>
+  <wsdl:message name="DeleteWardWiseDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteWardWiseDataResponse" />
+  </wsdl:message>
   <wsdl:portType name="wsPatientSoap">
     <wsdl:operation name="GetPatients">
       <wsdl:input message="tns:GetPatientsSoapIn" />
       <wsdl:output message="tns:GetPatientsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientsByEmrName">
+      <wsdl:input message="tns:GetPatientsByEmrNameSoapIn" />
+      <wsdl:output message="tns:GetPatientsByEmrNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientByMRD">
+      <wsdl:input message="tns:GetPatientByMRDSoapIn" />
+      <wsdl:output message="tns:GetPatientByMRDSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetPatientByID">
       <wsdl:input message="tns:GetPatientByIDSoapIn" />
@@ -199,11 +593,81 @@
       <wsdl:input message="tns:DeletePatientSoapIn" />
       <wsdl:output message="tns:DeletePatientSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="CollectMSB">
+      <wsdl:input message="tns:CollectMSBSoapIn" />
+      <wsdl:output message="tns:CollectMSBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecollectMSB">
+      <wsdl:input message="tns:RecollectMSBSoapIn" />
+      <wsdl:output message="tns:RecollectMSBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMSB">
+      <wsdl:input message="tns:AddMSBSoapIn" />
+      <wsdl:output message="tns:AddMSBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMSB">
+      <wsdl:input message="tns:UpdateMSBSoapIn" />
+      <wsdl:output message="tns:UpdateMSBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMSB">
+      <wsdl:input message="tns:DeleteMSBSoapIn" />
+      <wsdl:output message="tns:DeleteMSBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentWiseData">
+      <wsdl:input message="tns:GetDepartmentWiseDataSoapIn" />
+      <wsdl:output message="tns:GetDepartmentWiseDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDepartmentWiseDataEntry">
+      <wsdl:input message="tns:AddDepartmentWiseDataEntrySoapIn" />
+      <wsdl:output message="tns:AddDepartmentWiseDataEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentWiseDataEntry">
+      <wsdl:input message="tns:UpdateDepartmentWiseDataEntrySoapIn" />
+      <wsdl:output message="tns:UpdateDepartmentWiseDataEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartmentWiseDataEntry">
+      <wsdl:input message="tns:DeleteDepartmentWiseDataEntrySoapIn" />
+      <wsdl:output message="tns:DeleteDepartmentWiseDataEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWardWiseData">
+      <wsdl:input message="tns:GetWardWiseDataSoapIn" />
+      <wsdl:output message="tns:GetWardWiseDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddWardWiseData">
+      <wsdl:input message="tns:AddWardWiseDataSoapIn" />
+      <wsdl:output message="tns:AddWardWiseDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWardWiseData">
+      <wsdl:input message="tns:UpdateWardWiseDataSoapIn" />
+      <wsdl:output message="tns:UpdateWardWiseDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWardWiseData">
+      <wsdl:input message="tns:DeleteWardWiseDataSoapIn" />
+      <wsdl:output message="tns:DeleteWardWiseDataSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="wsPatientSoap" type="tns:wsPatientSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetPatients">
       <soap:operation soapAction="http://tempuri.org/GetPatients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientsByEmrName">
+      <soap:operation soapAction="http://tempuri.org/GetPatientsByEmrName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientByMRD">
+      <soap:operation soapAction="http://tempuri.org/GetPatientByMRD" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -265,11 +729,146 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CollectMSB">
+      <soap:operation soapAction="http://tempuri.org/CollectMSB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecollectMSB">
+      <soap:operation soapAction="http://tempuri.org/RecollectMSB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMSB">
+      <soap:operation soapAction="http://tempuri.org/AddMSB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMSB">
+      <soap:operation soapAction="http://tempuri.org/UpdateMSB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMSB">
+      <soap:operation soapAction="http://tempuri.org/DeleteMSB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentWiseData">
+      <soap:operation soapAction="http://tempuri.org/GetDepartmentWiseData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDepartmentWiseDataEntry">
+      <soap:operation soapAction="http://tempuri.org/AddDepartmentWiseDataEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentWiseDataEntry">
+      <soap:operation soapAction="http://tempuri.org/UpdateDepartmentWiseDataEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartmentWiseDataEntry">
+      <soap:operation soapAction="http://tempuri.org/DeleteDepartmentWiseDataEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWardWiseData">
+      <soap:operation soapAction="http://tempuri.org/GetWardWiseData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWardWiseData">
+      <soap:operation soapAction="http://tempuri.org/AddWardWiseData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWardWiseData">
+      <soap:operation soapAction="http://tempuri.org/UpdateWardWiseData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWardWiseData">
+      <soap:operation soapAction="http://tempuri.org/DeleteWardWiseData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="wsPatientSoap12" type="tns:wsPatientSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetPatients">
       <soap12:operation soapAction="http://tempuri.org/GetPatients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientsByEmrName">
+      <soap12:operation soapAction="http://tempuri.org/GetPatientsByEmrName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientByMRD">
+      <soap12:operation soapAction="http://tempuri.org/GetPatientByMRD" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -324,6 +923,123 @@
     </wsdl:operation>
     <wsdl:operation name="DeletePatient">
       <soap12:operation soapAction="http://tempuri.org/DeletePatient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CollectMSB">
+      <soap12:operation soapAction="http://tempuri.org/CollectMSB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecollectMSB">
+      <soap12:operation soapAction="http://tempuri.org/RecollectMSB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMSB">
+      <soap12:operation soapAction="http://tempuri.org/AddMSB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMSB">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMSB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMSB">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMSB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentWiseData">
+      <soap12:operation soapAction="http://tempuri.org/GetDepartmentWiseData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDepartmentWiseDataEntry">
+      <soap12:operation soapAction="http://tempuri.org/AddDepartmentWiseDataEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentWiseDataEntry">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDepartmentWiseDataEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartmentWiseDataEntry">
+      <soap12:operation soapAction="http://tempuri.org/DeleteDepartmentWiseDataEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWardWiseData">
+      <soap12:operation soapAction="http://tempuri.org/GetWardWiseData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWardWiseData">
+      <soap12:operation soapAction="http://tempuri.org/AddWardWiseData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWardWiseData">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWardWiseData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWardWiseData">
+      <soap12:operation soapAction="http://tempuri.org/DeleteWardWiseData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

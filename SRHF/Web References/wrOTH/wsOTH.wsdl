@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetOpTheater">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOpTheaterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOpTheaterResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Server2Client">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="value" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="dt">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="ds">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOpTheaterByEMR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EMRNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpTheaterByEMRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOpTheaterByEMRResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpTheaterByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpTheaterByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOpTheaterByDateResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpTheaterByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="df" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpTheaterByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOpTheaterByDatesResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpTheaterByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpTheaterByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOpTheaterByIDResult" type="tns:OpTheater" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OpTheater">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="I_Date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DailyNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonthlyNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="YearlyNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMRNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Anaesthesia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OpType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Anaesthetist" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surgeon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Assistant" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddOpTheater">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="op" type="tns:OpTheater" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOpTheaterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddOpTheaterResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateOpTheater">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="op" type="tns:OpTheater" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateOpTheaterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateOpTheaterResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteOpTheater">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="op" type="tns:OpTheater" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteOpTheaterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteOpTheaterResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AnaesthetistAutoComplete">
+        <s:complexType />
+      </s:element>
+      <s:element name="AnaesthetistAutoCompleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AnaesthetistAutoCompleteResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SurgeonAutoComplete">
+        <s:complexType />
+      </s:element>
+      <s:element name="SurgeonAutoCompleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SurgeonAutoCompleteResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssistantAutoComplete">
+        <s:complexType />
+      </s:element>
+      <s:element name="AssistantAutoCompleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AssistantAutoCompleteResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyNoResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyNoResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYearlyNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYearlyNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYearlyNoResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetOpTheaterSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpTheater" />
+  </wsdl:message>
+  <wsdl:message name="GetOpTheaterSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpTheaterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOpTheaterByEMRSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpTheaterByEMR" />
+  </wsdl:message>
+  <wsdl:message name="GetOpTheaterByEMRSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpTheaterByEMRResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOpTheaterByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpTheaterByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetOpTheaterByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpTheaterByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOpTheaterByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpTheaterByDates" />
+  </wsdl:message>
+  <wsdl:message name="GetOpTheaterByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpTheaterByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOpTheaterByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpTheaterByID" />
+  </wsdl:message>
+  <wsdl:message name="GetOpTheaterByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpTheaterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOpTheaterSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOpTheater" />
+  </wsdl:message>
+  <wsdl:message name="AddOpTheaterSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOpTheaterResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOpTheaterSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateOpTheater" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOpTheaterSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateOpTheaterResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteOpTheaterSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteOpTheater" />
+  </wsdl:message>
+  <wsdl:message name="DeleteOpTheaterSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteOpTheaterResponse" />
+  </wsdl:message>
+  <wsdl:message name="AnaesthetistAutoCompleteSoapIn">
+    <wsdl:part name="parameters" element="tns:AnaesthetistAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="AnaesthetistAutoCompleteSoapOut">
+    <wsdl:part name="parameters" element="tns:AnaesthetistAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SurgeonAutoCompleteSoapIn">
+    <wsdl:part name="parameters" element="tns:SurgeonAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="SurgeonAutoCompleteSoapOut">
+    <wsdl:part name="parameters" element="tns:SurgeonAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AssistantAutoCompleteSoapIn">
+    <wsdl:part name="parameters" element="tns:AssistantAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="AssistantAutoCompleteSoapOut">
+    <wsdl:part name="parameters" element="tns:AssistantAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyNo" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyNo" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYearlyNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYearlyNo" />
+  </wsdl:message>
+  <wsdl:message name="GetYearlyNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYearlyNoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsOTHSoap">
+    <wsdl:operation name="GetOpTheater">
+      <wsdl:input message="tns:GetOpTheaterSoapIn" />
+      <wsdl:output message="tns:GetOpTheaterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByEMR">
+      <wsdl:input message="tns:GetOpTheaterByEMRSoapIn" />
+      <wsdl:output message="tns:GetOpTheaterByEMRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByDate">
+      <wsdl:input message="tns:GetOpTheaterByDateSoapIn" />
+      <wsdl:output message="tns:GetOpTheaterByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByDates">
+      <wsdl:input message="tns:GetOpTheaterByDatesSoapIn" />
+      <wsdl:output message="tns:GetOpTheaterByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByID">
+      <wsdl:input message="tns:GetOpTheaterByIDSoapIn" />
+      <wsdl:output message="tns:GetOpTheaterByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOpTheater">
+      <wsdl:input message="tns:AddOpTheaterSoapIn" />
+      <wsdl:output message="tns:AddOpTheaterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOpTheater">
+      <wsdl:input message="tns:UpdateOpTheaterSoapIn" />
+      <wsdl:output message="tns:UpdateOpTheaterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOpTheater">
+      <wsdl:input message="tns:DeleteOpTheaterSoapIn" />
+      <wsdl:output message="tns:DeleteOpTheaterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AnaesthetistAutoComplete">
+      <wsdl:input message="tns:AnaesthetistAutoCompleteSoapIn" />
+      <wsdl:output message="tns:AnaesthetistAutoCompleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SurgeonAutoComplete">
+      <wsdl:input message="tns:SurgeonAutoCompleteSoapIn" />
+      <wsdl:output message="tns:SurgeonAutoCompleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssistantAutoComplete">
+      <wsdl:input message="tns:AssistantAutoCompleteSoapIn" />
+      <wsdl:output message="tns:AssistantAutoCompleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyNo">
+      <wsdl:input message="tns:GetDailyNoSoapIn" />
+      <wsdl:output message="tns:GetDailyNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyNo">
+      <wsdl:input message="tns:GetMonthlyNoSoapIn" />
+      <wsdl:output message="tns:GetMonthlyNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYearlyNo">
+      <wsdl:input message="tns:GetYearlyNoSoapIn" />
+      <wsdl:output message="tns:GetYearlyNoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsOTHSoap" type="tns:wsOTHSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOpTheater">
+      <soap:operation soapAction="http://tempuri.org/GetOpTheater" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByEMR">
+      <soap:operation soapAction="http://tempuri.org/GetOpTheaterByEMR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByDate">
+      <soap:operation soapAction="http://tempuri.org/GetOpTheaterByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByDates">
+      <soap:operation soapAction="http://tempuri.org/GetOpTheaterByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByID">
+      <soap:operation soapAction="http://tempuri.org/GetOpTheaterByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOpTheater">
+      <soap:operation soapAction="http://tempuri.org/AddOpTheater" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOpTheater">
+      <soap:operation soapAction="http://tempuri.org/UpdateOpTheater" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOpTheater">
+      <soap:operation soapAction="http://tempuri.org/DeleteOpTheater" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnaesthetistAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/AnaesthetistAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SurgeonAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/SurgeonAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssistantAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/AssistantAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyNo">
+      <soap:operation soapAction="http://tempuri.org/GetDailyNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyNo">
+      <soap:operation soapAction="http://tempuri.org/GetMonthlyNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYearlyNo">
+      <soap:operation soapAction="http://tempuri.org/GetYearlyNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsOTHSoap12" type="tns:wsOTHSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOpTheater">
+      <soap12:operation soapAction="http://tempuri.org/GetOpTheater" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByEMR">
+      <soap12:operation soapAction="http://tempuri.org/GetOpTheaterByEMR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetOpTheaterByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByDates">
+      <soap12:operation soapAction="http://tempuri.org/GetOpTheaterByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpTheaterByID">
+      <soap12:operation soapAction="http://tempuri.org/GetOpTheaterByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOpTheater">
+      <soap12:operation soapAction="http://tempuri.org/AddOpTheater" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOpTheater">
+      <soap12:operation soapAction="http://tempuri.org/UpdateOpTheater" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOpTheater">
+      <soap12:operation soapAction="http://tempuri.org/DeleteOpTheater" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnaesthetistAutoComplete">
+      <soap12:operation soapAction="http://tempuri.org/AnaesthetistAutoComplete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SurgeonAutoComplete">
+      <soap12:operation soapAction="http://tempuri.org/SurgeonAutoComplete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssistantAutoComplete">
+      <soap12:operation soapAction="http://tempuri.org/AssistantAutoComplete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyNo">
+      <soap12:operation soapAction="http://tempuri.org/GetDailyNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyNo">
+      <soap12:operation soapAction="http://tempuri.org/GetMonthlyNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYearlyNo">
+      <soap12:operation soapAction="http://tempuri.org/GetYearlyNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsOTH">
+    <wsdl:port name="wsOTHSoap" binding="tns:wsOTHSoap">
+      <soap:address location="http://localhost:49983/wsOTH.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsOTHSoap12" binding="tns:wsOTHSoap12">
+      <soap12:address location="http://localhost:49983/wsOTH.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

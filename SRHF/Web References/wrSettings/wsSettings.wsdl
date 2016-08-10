@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetDepartments">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDepartmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDepartmentsResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Server2Client">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="value" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="dt">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="ds">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetDepartments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dept" type="tns:Dept" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Dept">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeptNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeptShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeptFullName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetDepartmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetDepartmentsResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDepartments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dept" type="tns:Dept" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDepartmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDepartmentsResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWards">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWardsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWardsResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddWard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="w" type="tns:Wards" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Wards">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WardNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WardName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WardFullName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddWardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddWardResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="w" type="tns:Wards" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWardResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteWard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="w" type="tns:Wards" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteWardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteWardResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackUpDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackUpDatabaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RestoreDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreDatabaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDepartmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepartments" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDepartmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDepartments" />
+  </wsdl:message>
+  <wsdl:message name="SetDepartmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDepartments" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWardsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWards" />
+  </wsdl:message>
+  <wsdl:message name="GetWardsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddWardSoapIn">
+    <wsdl:part name="parameters" element="tns:AddWard" />
+  </wsdl:message>
+  <wsdl:message name="AddWardSoapOut">
+    <wsdl:part name="parameters" element="tns:AddWardResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWardSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWard" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWardSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWardResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteWardSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteWard" />
+  </wsdl:message>
+  <wsdl:message name="DeleteWardSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteWardResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackUpDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:BackUpDatabase" />
+  </wsdl:message>
+  <wsdl:message name="BackUpDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:BackUpDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestoreDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:RestoreDatabase" />
+  </wsdl:message>
+  <wsdl:message name="RestoreDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:RestoreDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsSettingsSoap">
+    <wsdl:operation name="GetDepartments">
+      <wsdl:input message="tns:GetDepartmentsSoapIn" />
+      <wsdl:output message="tns:GetDepartmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDepartments">
+      <wsdl:input message="tns:SetDepartmentsSoapIn" />
+      <wsdl:output message="tns:SetDepartmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartments">
+      <wsdl:input message="tns:UpdateDepartmentsSoapIn" />
+      <wsdl:output message="tns:UpdateDepartmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWards">
+      <wsdl:input message="tns:GetWardsSoapIn" />
+      <wsdl:output message="tns:GetWardsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddWard">
+      <wsdl:input message="tns:AddWardSoapIn" />
+      <wsdl:output message="tns:AddWardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWard">
+      <wsdl:input message="tns:UpdateWardSoapIn" />
+      <wsdl:output message="tns:UpdateWardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWard">
+      <wsdl:input message="tns:DeleteWardSoapIn" />
+      <wsdl:output message="tns:DeleteWardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackUpDatabase">
+      <wsdl:input message="tns:BackUpDatabaseSoapIn" />
+      <wsdl:output message="tns:BackUpDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreDatabase">
+      <wsdl:input message="tns:RestoreDatabaseSoapIn" />
+      <wsdl:output message="tns:RestoreDatabaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsSettingsSoap" type="tns:wsSettingsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDepartments">
+      <soap:operation soapAction="http://tempuri.org/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDepartments">
+      <soap:operation soapAction="http://tempuri.org/SetDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartments">
+      <soap:operation soapAction="http://tempuri.org/UpdateDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWards">
+      <soap:operation soapAction="http://tempuri.org/GetWards" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWard">
+      <soap:operation soapAction="http://tempuri.org/AddWard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWard">
+      <soap:operation soapAction="http://tempuri.org/UpdateWard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWard">
+      <soap:operation soapAction="http://tempuri.org/DeleteWard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackUpDatabase">
+      <soap:operation soapAction="http://tempuri.org/BackUpDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreDatabase">
+      <soap:operation soapAction="http://tempuri.org/RestoreDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsSettingsSoap12" type="tns:wsSettingsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDepartments">
+      <soap12:operation soapAction="http://tempuri.org/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDepartments">
+      <soap12:operation soapAction="http://tempuri.org/SetDepartments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartments">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDepartments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWards">
+      <soap12:operation soapAction="http://tempuri.org/GetWards" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWard">
+      <soap12:operation soapAction="http://tempuri.org/AddWard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWard">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWard">
+      <soap12:operation soapAction="http://tempuri.org/DeleteWard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackUpDatabase">
+      <soap12:operation soapAction="http://tempuri.org/BackUpDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreDatabase">
+      <soap12:operation soapAction="http://tempuri.org/RestoreDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsSettings">
+    <wsdl:port name="wsSettingsSoap" binding="tns:wsSettingsSoap">
+      <soap:address location="http://localhost:49983/wsSettings.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsSettingsSoap12" binding="tns:wsSettingsSoap12">
+      <soap12:address location="http://localhost:49983/wsSettings.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

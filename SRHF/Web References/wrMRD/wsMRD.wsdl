@@ -2,10 +2,18 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="AddMRD">
+      <s:element name="GetPatientMRD">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="mrd" type="tns:MRD" />
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="field" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientMRDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPatientMRDResult" type="tns:MRD" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -16,13 +24,34 @@
           <s:element minOccurs="0" maxOccurs="1" name="EMRNo" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Diagnosis" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="MRDNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ward" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ICDCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdmissionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DischargeDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HospitalDays" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Discharged" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DischargedAlive" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DischargedDeath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CauseOfDeath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DirectCause" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AntecedentCause" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherCause" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:element name="AddMRDResponse">
+      <s:element name="GetMRDByDate">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="AddMRDResult" type="tns:Server2Client" />
+            <s:element minOccurs="1" maxOccurs="1" name="d" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="DateQuery" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMRDByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMRDByDateResult" type="tns:Server2Client" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -50,6 +79,64 @@
           </s:element>
         </s:sequence>
       </s:complexType>
+      <s:element name="GetMRDByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="df" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="DateQuery" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMRDByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMRDByDatesResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMRDByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMRDByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMRDByIDResult" type="tns:MRD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMRDByEMR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EMRNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMRDByEMRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMRDByEMRResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMRD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mrd" type="tns:MRD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMRDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMRDResult" type="tns:Server2Client" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="UpdateMRD">
         <s:complexType>
           <s:sequence>
@@ -90,6 +177,36 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="GetPatientMRDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPatientMRD" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientMRDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPatientMRDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMRDByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMRDByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetMRDByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMRDByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMRDByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMRDByDates" />
+  </wsdl:message>
+  <wsdl:message name="GetMRDByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMRDByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMRDByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMRDByID" />
+  </wsdl:message>
+  <wsdl:message name="GetMRDByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMRDByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMRDByEMRSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMRDByEMR" />
+  </wsdl:message>
+  <wsdl:message name="GetMRDByEMRSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMRDByEMRResponse" />
+  </wsdl:message>
   <wsdl:message name="AddMRDSoapIn">
     <wsdl:part name="parameters" element="tns:AddMRD" />
   </wsdl:message>
@@ -115,6 +232,26 @@
     <wsdl:part name="parameters" element="tns:GetSerialNoResponse" />
   </wsdl:message>
   <wsdl:portType name="wsMRDSoap">
+    <wsdl:operation name="GetPatientMRD">
+      <wsdl:input message="tns:GetPatientMRDSoapIn" />
+      <wsdl:output message="tns:GetPatientMRDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByDate">
+      <wsdl:input message="tns:GetMRDByDateSoapIn" />
+      <wsdl:output message="tns:GetMRDByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByDates">
+      <wsdl:input message="tns:GetMRDByDatesSoapIn" />
+      <wsdl:output message="tns:GetMRDByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByID">
+      <wsdl:input message="tns:GetMRDByIDSoapIn" />
+      <wsdl:output message="tns:GetMRDByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByEMR">
+      <wsdl:input message="tns:GetMRDByEMRSoapIn" />
+      <wsdl:output message="tns:GetMRDByEMRSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="AddMRD">
       <wsdl:input message="tns:AddMRDSoapIn" />
       <wsdl:output message="tns:AddMRDSoapOut" />
@@ -134,6 +271,51 @@
   </wsdl:portType>
   <wsdl:binding name="wsMRDSoap" type="tns:wsMRDSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPatientMRD">
+      <soap:operation soapAction="http://tempuri.org/GetPatientMRD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByDate">
+      <soap:operation soapAction="http://tempuri.org/GetMRDByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByDates">
+      <soap:operation soapAction="http://tempuri.org/GetMRDByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByID">
+      <soap:operation soapAction="http://tempuri.org/GetMRDByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByEMR">
+      <soap:operation soapAction="http://tempuri.org/GetMRDByEMR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddMRD">
       <soap:operation soapAction="http://tempuri.org/AddMRD" style="document" />
       <wsdl:input>
@@ -173,6 +355,51 @@
   </wsdl:binding>
   <wsdl:binding name="wsMRDSoap12" type="tns:wsMRDSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPatientMRD">
+      <soap12:operation soapAction="http://tempuri.org/GetPatientMRD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetMRDByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByDates">
+      <soap12:operation soapAction="http://tempuri.org/GetMRDByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByID">
+      <soap12:operation soapAction="http://tempuri.org/GetMRDByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMRDByEMR">
+      <soap12:operation soapAction="http://tempuri.org/GetMRDByEMR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddMRD">
       <soap12:operation soapAction="http://tempuri.org/AddMRD" style="document" />
       <wsdl:input>

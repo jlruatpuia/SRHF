@@ -32,6 +32,10 @@ namespace SRHF.wrPatient {
         
         private System.Threading.SendOrPostCallback GetPatientsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetPatientsByEmrNameOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetPatientByMRDOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetPatientByIDOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetPatientByEMROperationCompleted;
@@ -43,6 +47,32 @@ namespace SRHF.wrPatient {
         private System.Threading.SendOrPostCallback UpdatePatientOperationCompleted;
         
         private System.Threading.SendOrPostCallback DeletePatientOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CollectMSBOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RecollectMSBOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddMSBOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateMSBOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteMSBOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetDepartmentWiseDataOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddDepartmentWiseDataEntryOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateDepartmentWiseDataEntryOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteDepartmentWiseDataEntryOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetWardWiseDataOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddWardWiseDataOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateWardWiseDataOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteWardWiseDataOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -86,6 +116,12 @@ namespace SRHF.wrPatient {
         public event GetPatientsCompletedEventHandler GetPatientsCompleted;
         
         /// <remarks/>
+        public event GetPatientsByEmrNameCompletedEventHandler GetPatientsByEmrNameCompleted;
+        
+        /// <remarks/>
+        public event GetPatientByMRDCompletedEventHandler GetPatientByMRDCompleted;
+        
+        /// <remarks/>
         public event GetPatientByIDCompletedEventHandler GetPatientByIDCompleted;
         
         /// <remarks/>
@@ -102,6 +138,45 @@ namespace SRHF.wrPatient {
         
         /// <remarks/>
         public event DeletePatientCompletedEventHandler DeletePatientCompleted;
+        
+        /// <remarks/>
+        public event CollectMSBCompletedEventHandler CollectMSBCompleted;
+        
+        /// <remarks/>
+        public event RecollectMSBCompletedEventHandler RecollectMSBCompleted;
+        
+        /// <remarks/>
+        public event AddMSBCompletedEventHandler AddMSBCompleted;
+        
+        /// <remarks/>
+        public event UpdateMSBCompletedEventHandler UpdateMSBCompleted;
+        
+        /// <remarks/>
+        public event DeleteMSBCompletedEventHandler DeleteMSBCompleted;
+        
+        /// <remarks/>
+        public event GetDepartmentWiseDataCompletedEventHandler GetDepartmentWiseDataCompleted;
+        
+        /// <remarks/>
+        public event AddDepartmentWiseDataEntryCompletedEventHandler AddDepartmentWiseDataEntryCompleted;
+        
+        /// <remarks/>
+        public event UpdateDepartmentWiseDataEntryCompletedEventHandler UpdateDepartmentWiseDataEntryCompleted;
+        
+        /// <remarks/>
+        public event DeleteDepartmentWiseDataEntryCompletedEventHandler DeleteDepartmentWiseDataEntryCompleted;
+        
+        /// <remarks/>
+        public event GetWardWiseDataCompletedEventHandler GetWardWiseDataCompleted;
+        
+        /// <remarks/>
+        public event AddWardWiseDataCompletedEventHandler AddWardWiseDataCompleted;
+        
+        /// <remarks/>
+        public event UpdateWardWiseDataCompletedEventHandler UpdateWardWiseDataCompleted;
+        
+        /// <remarks/>
+        public event DeleteWardWiseDataCompletedEventHandler DeleteWardWiseDataCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPatients", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -127,6 +202,64 @@ namespace SRHF.wrPatient {
             if ((this.GetPatientsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetPatientsCompleted(this, new GetPatientsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPatientsByEmrName", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client GetPatientsByEmrName(string query) {
+            object[] results = this.Invoke("GetPatientsByEmrName", new object[] {
+                        query});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetPatientsByEmrNameAsync(string query) {
+            this.GetPatientsByEmrNameAsync(query, null);
+        }
+        
+        /// <remarks/>
+        public void GetPatientsByEmrNameAsync(string query, object userState) {
+            if ((this.GetPatientsByEmrNameOperationCompleted == null)) {
+                this.GetPatientsByEmrNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetPatientsByEmrNameOperationCompleted);
+            }
+            this.InvokeAsync("GetPatientsByEmrName", new object[] {
+                        query}, this.GetPatientsByEmrNameOperationCompleted, userState);
+        }
+        
+        private void OnGetPatientsByEmrNameOperationCompleted(object arg) {
+            if ((this.GetPatientsByEmrNameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetPatientsByEmrNameCompleted(this, new GetPatientsByEmrNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPatientByMRD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Patient GetPatientByMRD(string MRD) {
+            object[] results = this.Invoke("GetPatientByMRD", new object[] {
+                        MRD});
+            return ((Patient)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetPatientByMRDAsync(string MRD) {
+            this.GetPatientByMRDAsync(MRD, null);
+        }
+        
+        /// <remarks/>
+        public void GetPatientByMRDAsync(string MRD, object userState) {
+            if ((this.GetPatientByMRDOperationCompleted == null)) {
+                this.GetPatientByMRDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetPatientByMRDOperationCompleted);
+            }
+            this.InvokeAsync("GetPatientByMRD", new object[] {
+                        MRD}, this.GetPatientByMRDOperationCompleted, userState);
+        }
+        
+        private void OnGetPatientByMRDOperationCompleted(object arg) {
+            if ((this.GetPatientByMRDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetPatientByMRDCompleted(this, new GetPatientByMRDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -303,6 +436,393 @@ namespace SRHF.wrPatient {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CollectMSB", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public MSB CollectMSB(int Month, int Year) {
+            object[] results = this.Invoke("CollectMSB", new object[] {
+                        Month,
+                        Year});
+            return ((MSB)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CollectMSBAsync(int Month, int Year) {
+            this.CollectMSBAsync(Month, Year, null);
+        }
+        
+        /// <remarks/>
+        public void CollectMSBAsync(int Month, int Year, object userState) {
+            if ((this.CollectMSBOperationCompleted == null)) {
+                this.CollectMSBOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCollectMSBOperationCompleted);
+            }
+            this.InvokeAsync("CollectMSB", new object[] {
+                        Month,
+                        Year}, this.CollectMSBOperationCompleted, userState);
+        }
+        
+        private void OnCollectMSBOperationCompleted(object arg) {
+            if ((this.CollectMSBCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CollectMSBCompleted(this, new CollectMSBCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RecollectMSB", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public MSB RecollectMSB(int month, int year) {
+            object[] results = this.Invoke("RecollectMSB", new object[] {
+                        month,
+                        year});
+            return ((MSB)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RecollectMSBAsync(int month, int year) {
+            this.RecollectMSBAsync(month, year, null);
+        }
+        
+        /// <remarks/>
+        public void RecollectMSBAsync(int month, int year, object userState) {
+            if ((this.RecollectMSBOperationCompleted == null)) {
+                this.RecollectMSBOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRecollectMSBOperationCompleted);
+            }
+            this.InvokeAsync("RecollectMSB", new object[] {
+                        month,
+                        year}, this.RecollectMSBOperationCompleted, userState);
+        }
+        
+        private void OnRecollectMSBOperationCompleted(object arg) {
+            if ((this.RecollectMSBCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RecollectMSBCompleted(this, new RecollectMSBCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddMSB", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client AddMSB(MSB b) {
+            object[] results = this.Invoke("AddMSB", new object[] {
+                        b});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddMSBAsync(MSB b) {
+            this.AddMSBAsync(b, null);
+        }
+        
+        /// <remarks/>
+        public void AddMSBAsync(MSB b, object userState) {
+            if ((this.AddMSBOperationCompleted == null)) {
+                this.AddMSBOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddMSBOperationCompleted);
+            }
+            this.InvokeAsync("AddMSB", new object[] {
+                        b}, this.AddMSBOperationCompleted, userState);
+        }
+        
+        private void OnAddMSBOperationCompleted(object arg) {
+            if ((this.AddMSBCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddMSBCompleted(this, new AddMSBCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateMSB", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client UpdateMSB(MSB b) {
+            object[] results = this.Invoke("UpdateMSB", new object[] {
+                        b});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateMSBAsync(MSB b) {
+            this.UpdateMSBAsync(b, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateMSBAsync(MSB b, object userState) {
+            if ((this.UpdateMSBOperationCompleted == null)) {
+                this.UpdateMSBOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateMSBOperationCompleted);
+            }
+            this.InvokeAsync("UpdateMSB", new object[] {
+                        b}, this.UpdateMSBOperationCompleted, userState);
+        }
+        
+        private void OnUpdateMSBOperationCompleted(object arg) {
+            if ((this.UpdateMSBCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateMSBCompleted(this, new UpdateMSBCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteMSB", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client DeleteMSB(int month, int year) {
+            object[] results = this.Invoke("DeleteMSB", new object[] {
+                        month,
+                        year});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DeleteMSBAsync(int month, int year) {
+            this.DeleteMSBAsync(month, year, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteMSBAsync(int month, int year, object userState) {
+            if ((this.DeleteMSBOperationCompleted == null)) {
+                this.DeleteMSBOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteMSBOperationCompleted);
+            }
+            this.InvokeAsync("DeleteMSB", new object[] {
+                        month,
+                        year}, this.DeleteMSBOperationCompleted, userState);
+        }
+        
+        private void OnDeleteMSBOperationCompleted(object arg) {
+            if ((this.DeleteMSBCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteMSBCompleted(this, new DeleteMSBCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDepartmentWiseData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client GetDepartmentWiseData(int month, int year) {
+            object[] results = this.Invoke("GetDepartmentWiseData", new object[] {
+                        month,
+                        year});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDepartmentWiseDataAsync(int month, int year) {
+            this.GetDepartmentWiseDataAsync(month, year, null);
+        }
+        
+        /// <remarks/>
+        public void GetDepartmentWiseDataAsync(int month, int year, object userState) {
+            if ((this.GetDepartmentWiseDataOperationCompleted == null)) {
+                this.GetDepartmentWiseDataOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDepartmentWiseDataOperationCompleted);
+            }
+            this.InvokeAsync("GetDepartmentWiseData", new object[] {
+                        month,
+                        year}, this.GetDepartmentWiseDataOperationCompleted, userState);
+        }
+        
+        private void OnGetDepartmentWiseDataOperationCompleted(object arg) {
+            if ((this.GetDepartmentWiseDataCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDepartmentWiseDataCompleted(this, new GetDepartmentWiseDataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddDepartmentWiseDataEntry", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client AddDepartmentWiseDataEntry(DepartmentWiseData d) {
+            object[] results = this.Invoke("AddDepartmentWiseDataEntry", new object[] {
+                        d});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddDepartmentWiseDataEntryAsync(DepartmentWiseData d) {
+            this.AddDepartmentWiseDataEntryAsync(d, null);
+        }
+        
+        /// <remarks/>
+        public void AddDepartmentWiseDataEntryAsync(DepartmentWiseData d, object userState) {
+            if ((this.AddDepartmentWiseDataEntryOperationCompleted == null)) {
+                this.AddDepartmentWiseDataEntryOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddDepartmentWiseDataEntryOperationCompleted);
+            }
+            this.InvokeAsync("AddDepartmentWiseDataEntry", new object[] {
+                        d}, this.AddDepartmentWiseDataEntryOperationCompleted, userState);
+        }
+        
+        private void OnAddDepartmentWiseDataEntryOperationCompleted(object arg) {
+            if ((this.AddDepartmentWiseDataEntryCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddDepartmentWiseDataEntryCompleted(this, new AddDepartmentWiseDataEntryCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateDepartmentWiseDataEntry", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client UpdateDepartmentWiseDataEntry(DepartmentWiseData d) {
+            object[] results = this.Invoke("UpdateDepartmentWiseDataEntry", new object[] {
+                        d});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateDepartmentWiseDataEntryAsync(DepartmentWiseData d) {
+            this.UpdateDepartmentWiseDataEntryAsync(d, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateDepartmentWiseDataEntryAsync(DepartmentWiseData d, object userState) {
+            if ((this.UpdateDepartmentWiseDataEntryOperationCompleted == null)) {
+                this.UpdateDepartmentWiseDataEntryOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateDepartmentWiseDataEntryOperationCompleted);
+            }
+            this.InvokeAsync("UpdateDepartmentWiseDataEntry", new object[] {
+                        d}, this.UpdateDepartmentWiseDataEntryOperationCompleted, userState);
+        }
+        
+        private void OnUpdateDepartmentWiseDataEntryOperationCompleted(object arg) {
+            if ((this.UpdateDepartmentWiseDataEntryCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateDepartmentWiseDataEntryCompleted(this, new UpdateDepartmentWiseDataEntryCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteDepartmentWiseDataEntry", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client DeleteDepartmentWiseDataEntry(DepartmentWiseData d) {
+            object[] results = this.Invoke("DeleteDepartmentWiseDataEntry", new object[] {
+                        d});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DeleteDepartmentWiseDataEntryAsync(DepartmentWiseData d) {
+            this.DeleteDepartmentWiseDataEntryAsync(d, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteDepartmentWiseDataEntryAsync(DepartmentWiseData d, object userState) {
+            if ((this.DeleteDepartmentWiseDataEntryOperationCompleted == null)) {
+                this.DeleteDepartmentWiseDataEntryOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteDepartmentWiseDataEntryOperationCompleted);
+            }
+            this.InvokeAsync("DeleteDepartmentWiseDataEntry", new object[] {
+                        d}, this.DeleteDepartmentWiseDataEntryOperationCompleted, userState);
+        }
+        
+        private void OnDeleteDepartmentWiseDataEntryOperationCompleted(object arg) {
+            if ((this.DeleteDepartmentWiseDataEntryCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteDepartmentWiseDataEntryCompleted(this, new DeleteDepartmentWiseDataEntryCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetWardWiseData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client GetWardWiseData(int month, int year) {
+            object[] results = this.Invoke("GetWardWiseData", new object[] {
+                        month,
+                        year});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetWardWiseDataAsync(int month, int year) {
+            this.GetWardWiseDataAsync(month, year, null);
+        }
+        
+        /// <remarks/>
+        public void GetWardWiseDataAsync(int month, int year, object userState) {
+            if ((this.GetWardWiseDataOperationCompleted == null)) {
+                this.GetWardWiseDataOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetWardWiseDataOperationCompleted);
+            }
+            this.InvokeAsync("GetWardWiseData", new object[] {
+                        month,
+                        year}, this.GetWardWiseDataOperationCompleted, userState);
+        }
+        
+        private void OnGetWardWiseDataOperationCompleted(object arg) {
+            if ((this.GetWardWiseDataCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetWardWiseDataCompleted(this, new GetWardWiseDataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddWardWiseData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client AddWardWiseData(WardWiseData d) {
+            object[] results = this.Invoke("AddWardWiseData", new object[] {
+                        d});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddWardWiseDataAsync(WardWiseData d) {
+            this.AddWardWiseDataAsync(d, null);
+        }
+        
+        /// <remarks/>
+        public void AddWardWiseDataAsync(WardWiseData d, object userState) {
+            if ((this.AddWardWiseDataOperationCompleted == null)) {
+                this.AddWardWiseDataOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddWardWiseDataOperationCompleted);
+            }
+            this.InvokeAsync("AddWardWiseData", new object[] {
+                        d}, this.AddWardWiseDataOperationCompleted, userState);
+        }
+        
+        private void OnAddWardWiseDataOperationCompleted(object arg) {
+            if ((this.AddWardWiseDataCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddWardWiseDataCompleted(this, new AddWardWiseDataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateWardWiseData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client UpdateWardWiseData(WardWiseData d) {
+            object[] results = this.Invoke("UpdateWardWiseData", new object[] {
+                        d});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateWardWiseDataAsync(WardWiseData d) {
+            this.UpdateWardWiseDataAsync(d, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateWardWiseDataAsync(WardWiseData d, object userState) {
+            if ((this.UpdateWardWiseDataOperationCompleted == null)) {
+                this.UpdateWardWiseDataOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateWardWiseDataOperationCompleted);
+            }
+            this.InvokeAsync("UpdateWardWiseData", new object[] {
+                        d}, this.UpdateWardWiseDataOperationCompleted, userState);
+        }
+        
+        private void OnUpdateWardWiseDataOperationCompleted(object arg) {
+            if ((this.UpdateWardWiseDataCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateWardWiseDataCompleted(this, new UpdateWardWiseDataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteWardWiseData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Server2Client DeleteWardWiseData(WardWiseData d) {
+            object[] results = this.Invoke("DeleteWardWiseData", new object[] {
+                        d});
+            return ((Server2Client)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DeleteWardWiseDataAsync(WardWiseData d) {
+            this.DeleteWardWiseDataAsync(d, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteWardWiseDataAsync(WardWiseData d, object userState) {
+            if ((this.DeleteWardWiseDataOperationCompleted == null)) {
+                this.DeleteWardWiseDataOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteWardWiseDataOperationCompleted);
+            }
+            this.InvokeAsync("DeleteWardWiseData", new object[] {
+                        d}, this.DeleteWardWiseDataOperationCompleted, userState);
+        }
+        
+        private void OnDeleteWardWiseDataOperationCompleted(object arg) {
+            if ((this.DeleteWardWiseDataCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteWardWiseDataCompleted(this, new DeleteWardWiseDataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -398,6 +918,861 @@ namespace SRHF.wrPatient {
             }
             set {
                 this.dsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class WardWiseData {
+        
+        private int idField;
+        
+        private int dMonthField;
+        
+        private int dYearField;
+        
+        private int wardNoField;
+        
+        private string wardNameField;
+        
+        private int bedField;
+        
+        private int admissionField;
+        
+        private int dischargeField;
+        
+        private int deathField;
+        
+        private double avgStayField;
+        
+        private double bedOccupancyField;
+        
+        /// <remarks/>
+        public int ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DMonth {
+            get {
+                return this.dMonthField;
+            }
+            set {
+                this.dMonthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DYear {
+            get {
+                return this.dYearField;
+            }
+            set {
+                this.dYearField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WardNo {
+            get {
+                return this.wardNoField;
+            }
+            set {
+                this.wardNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string WardName {
+            get {
+                return this.wardNameField;
+            }
+            set {
+                this.wardNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Bed {
+            get {
+                return this.bedField;
+            }
+            set {
+                this.bedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Admission {
+            get {
+                return this.admissionField;
+            }
+            set {
+                this.admissionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Discharge {
+            get {
+                return this.dischargeField;
+            }
+            set {
+                this.dischargeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Death {
+            get {
+                return this.deathField;
+            }
+            set {
+                this.deathField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double AvgStay {
+            get {
+                return this.avgStayField;
+            }
+            set {
+                this.avgStayField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double BedOccupancy {
+            get {
+                return this.bedOccupancyField;
+            }
+            set {
+                this.bedOccupancyField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class DepartmentWiseData {
+        
+        private int idField;
+        
+        private int dMonthField;
+        
+        private int dYearField;
+        
+        private int deptNoField;
+        
+        private string deptNameField;
+        
+        private int newCaseField;
+        
+        private int oldCaseField;
+        
+        private int totalField;
+        
+        private double averageField;
+        
+        /// <remarks/>
+        public int ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DMonth {
+            get {
+                return this.dMonthField;
+            }
+            set {
+                this.dMonthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DYear {
+            get {
+                return this.dYearField;
+            }
+            set {
+                this.dYearField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DeptNo {
+            get {
+                return this.deptNoField;
+            }
+            set {
+                this.deptNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DeptName {
+            get {
+                return this.deptNameField;
+            }
+            set {
+                this.deptNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int NewCase {
+            get {
+                return this.newCaseField;
+            }
+            set {
+                this.newCaseField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int OldCase {
+            get {
+                return this.oldCaseField;
+            }
+            set {
+                this.oldCaseField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Total {
+            get {
+                return this.totalField;
+            }
+            set {
+                this.totalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double Average {
+            get {
+                return this.averageField;
+            }
+            set {
+                this.averageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class MSB {
+        
+        private int idField;
+        
+        private string hospitalNameField;
+        
+        private int monthField;
+        
+        private int yearField;
+        
+        private int bedStrengthField;
+        
+        private int totalPatientCareOPDField;
+        
+        private int totalPatientCareCASField;
+        
+        private int totalPatientCareNewField;
+        
+        private int totalPatientCareOldField;
+        
+        private int totalAdmissionFromOPDField;
+        
+        private int totalAdmissionFromCASField;
+        
+        private int investigationLABField;
+        
+        private int investigationXRAYField;
+        
+        private int investigationENDOField;
+        
+        private int investigationUSGField;
+        
+        private int investigationECGField;
+        
+        private int investigationBRONField;
+        
+        private int investigationCOLONField;
+        
+        private int investigationRADIOField;
+        
+        private int investigationEEGField;
+        
+        private int investigationECHOField;
+        
+        private int investigationPFTField;
+        
+        private int investigationDIETField;
+        
+        private int investigationDIALField;
+        
+        private int investigationCTSCANField;
+        
+        private int investigationCHEMOField;
+        
+        private int investigationPMRField;
+        
+        private int operationMajorField;
+        
+        private int operationMinorField;
+        
+        private int deliveryLiveMaleField;
+        
+        private int deliveryLiveFemaleField;
+        
+        private int deliveryStillMaleField;
+        
+        private int deliveryStillFemaleField;
+        
+        private int dischargeAliveField;
+        
+        private int dischargeDeathField;
+        
+        private int dischargeDeathU48Field;
+        
+        private int dischargeDeathO48Field;
+        
+        private int patientDischargedDaysField;
+        
+        private double averageLengthOfStayField;
+        
+        private double totalInPatientCensusField;
+        
+        private double avgPercOfBedOccupancyField;
+        
+        private double bedTurnOverRateField;
+        
+        private double dailyCensusOfIndoorPatientMAXField;
+        
+        private double dailyCensusOfIndoorPatientMINField;
+        
+        private int noOfAutopsyField;
+        
+        private int caseReferredOutsideMizoramField;
+        
+        private double healthCareField;
+        
+        private double rSBYField;
+        
+        private int countField;
+        
+        /// <remarks/>
+        public int ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string HospitalName {
+            get {
+                return this.hospitalNameField;
+            }
+            set {
+                this.hospitalNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Month {
+            get {
+                return this.monthField;
+            }
+            set {
+                this.monthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Year {
+            get {
+                return this.yearField;
+            }
+            set {
+                this.yearField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BedStrength {
+            get {
+                return this.bedStrengthField;
+            }
+            set {
+                this.bedStrengthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPatientCareOPD {
+            get {
+                return this.totalPatientCareOPDField;
+            }
+            set {
+                this.totalPatientCareOPDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPatientCareCAS {
+            get {
+                return this.totalPatientCareCASField;
+            }
+            set {
+                this.totalPatientCareCASField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPatientCareNew {
+            get {
+                return this.totalPatientCareNewField;
+            }
+            set {
+                this.totalPatientCareNewField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPatientCareOld {
+            get {
+                return this.totalPatientCareOldField;
+            }
+            set {
+                this.totalPatientCareOldField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalAdmissionFromOPD {
+            get {
+                return this.totalAdmissionFromOPDField;
+            }
+            set {
+                this.totalAdmissionFromOPDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalAdmissionFromCAS {
+            get {
+                return this.totalAdmissionFromCASField;
+            }
+            set {
+                this.totalAdmissionFromCASField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationLAB {
+            get {
+                return this.investigationLABField;
+            }
+            set {
+                this.investigationLABField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationXRAY {
+            get {
+                return this.investigationXRAYField;
+            }
+            set {
+                this.investigationXRAYField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationENDO {
+            get {
+                return this.investigationENDOField;
+            }
+            set {
+                this.investigationENDOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationUSG {
+            get {
+                return this.investigationUSGField;
+            }
+            set {
+                this.investigationUSGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationECG {
+            get {
+                return this.investigationECGField;
+            }
+            set {
+                this.investigationECGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationBRON {
+            get {
+                return this.investigationBRONField;
+            }
+            set {
+                this.investigationBRONField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationCOLON {
+            get {
+                return this.investigationCOLONField;
+            }
+            set {
+                this.investigationCOLONField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationRADIO {
+            get {
+                return this.investigationRADIOField;
+            }
+            set {
+                this.investigationRADIOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationEEG {
+            get {
+                return this.investigationEEGField;
+            }
+            set {
+                this.investigationEEGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationECHO {
+            get {
+                return this.investigationECHOField;
+            }
+            set {
+                this.investigationECHOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationPFT {
+            get {
+                return this.investigationPFTField;
+            }
+            set {
+                this.investigationPFTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationDIET {
+            get {
+                return this.investigationDIETField;
+            }
+            set {
+                this.investigationDIETField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationDIAL {
+            get {
+                return this.investigationDIALField;
+            }
+            set {
+                this.investigationDIALField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationCTSCAN {
+            get {
+                return this.investigationCTSCANField;
+            }
+            set {
+                this.investigationCTSCANField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationCHEMO {
+            get {
+                return this.investigationCHEMOField;
+            }
+            set {
+                this.investigationCHEMOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvestigationPMR {
+            get {
+                return this.investigationPMRField;
+            }
+            set {
+                this.investigationPMRField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int OperationMajor {
+            get {
+                return this.operationMajorField;
+            }
+            set {
+                this.operationMajorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int OperationMinor {
+            get {
+                return this.operationMinorField;
+            }
+            set {
+                this.operationMinorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DeliveryLiveMale {
+            get {
+                return this.deliveryLiveMaleField;
+            }
+            set {
+                this.deliveryLiveMaleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DeliveryLiveFemale {
+            get {
+                return this.deliveryLiveFemaleField;
+            }
+            set {
+                this.deliveryLiveFemaleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DeliveryStillMale {
+            get {
+                return this.deliveryStillMaleField;
+            }
+            set {
+                this.deliveryStillMaleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DeliveryStillFemale {
+            get {
+                return this.deliveryStillFemaleField;
+            }
+            set {
+                this.deliveryStillFemaleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DischargeAlive {
+            get {
+                return this.dischargeAliveField;
+            }
+            set {
+                this.dischargeAliveField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DischargeDeath {
+            get {
+                return this.dischargeDeathField;
+            }
+            set {
+                this.dischargeDeathField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DischargeDeathU48 {
+            get {
+                return this.dischargeDeathU48Field;
+            }
+            set {
+                this.dischargeDeathU48Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DischargeDeathO48 {
+            get {
+                return this.dischargeDeathO48Field;
+            }
+            set {
+                this.dischargeDeathO48Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PatientDischargedDays {
+            get {
+                return this.patientDischargedDaysField;
+            }
+            set {
+                this.patientDischargedDaysField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double AverageLengthOfStay {
+            get {
+                return this.averageLengthOfStayField;
+            }
+            set {
+                this.averageLengthOfStayField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double TotalInPatientCensus {
+            get {
+                return this.totalInPatientCensusField;
+            }
+            set {
+                this.totalInPatientCensusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double AvgPercOfBedOccupancy {
+            get {
+                return this.avgPercOfBedOccupancyField;
+            }
+            set {
+                this.avgPercOfBedOccupancyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double BedTurnOverRate {
+            get {
+                return this.bedTurnOverRateField;
+            }
+            set {
+                this.bedTurnOverRateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double DailyCensusOfIndoorPatientMAX {
+            get {
+                return this.dailyCensusOfIndoorPatientMAXField;
+            }
+            set {
+                this.dailyCensusOfIndoorPatientMAXField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double DailyCensusOfIndoorPatientMIN {
+            get {
+                return this.dailyCensusOfIndoorPatientMINField;
+            }
+            set {
+                this.dailyCensusOfIndoorPatientMINField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int NoOfAutopsy {
+            get {
+                return this.noOfAutopsyField;
+            }
+            set {
+                this.noOfAutopsyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CaseReferredOutsideMizoram {
+            get {
+                return this.caseReferredOutsideMizoramField;
+            }
+            set {
+                this.caseReferredOutsideMizoramField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double HealthCare {
+            get {
+                return this.healthCareField;
+            }
+            set {
+                this.healthCareField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double RSBY {
+            get {
+                return this.rSBYField;
+            }
+            set {
+                this.rSBYField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Count {
+            get {
+                return this.countField;
+            }
+            set {
+                this.countField = value;
             }
         }
     }
@@ -505,6 +1880,58 @@ namespace SRHF.wrPatient {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetPatientsByEmrNameCompletedEventHandler(object sender, GetPatientsByEmrNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetPatientsByEmrNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetPatientsByEmrNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetPatientByMRDCompletedEventHandler(object sender, GetPatientByMRDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetPatientByMRDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetPatientByMRDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Patient Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Patient)(this.results[0]));
             }
         }
     }
@@ -652,6 +2079,344 @@ namespace SRHF.wrPatient {
         private object[] results;
         
         internal DeletePatientCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void CollectMSBCompletedEventHandler(object sender, CollectMSBCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CollectMSBCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CollectMSBCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public MSB Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((MSB)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void RecollectMSBCompletedEventHandler(object sender, RecollectMSBCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RecollectMSBCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RecollectMSBCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public MSB Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((MSB)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void AddMSBCompletedEventHandler(object sender, AddMSBCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddMSBCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddMSBCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void UpdateMSBCompletedEventHandler(object sender, UpdateMSBCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateMSBCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateMSBCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void DeleteMSBCompletedEventHandler(object sender, DeleteMSBCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DeleteMSBCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DeleteMSBCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetDepartmentWiseDataCompletedEventHandler(object sender, GetDepartmentWiseDataCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetDepartmentWiseDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetDepartmentWiseDataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void AddDepartmentWiseDataEntryCompletedEventHandler(object sender, AddDepartmentWiseDataEntryCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddDepartmentWiseDataEntryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddDepartmentWiseDataEntryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void UpdateDepartmentWiseDataEntryCompletedEventHandler(object sender, UpdateDepartmentWiseDataEntryCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateDepartmentWiseDataEntryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateDepartmentWiseDataEntryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void DeleteDepartmentWiseDataEntryCompletedEventHandler(object sender, DeleteDepartmentWiseDataEntryCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DeleteDepartmentWiseDataEntryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DeleteDepartmentWiseDataEntryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetWardWiseDataCompletedEventHandler(object sender, GetWardWiseDataCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetWardWiseDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetWardWiseDataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void AddWardWiseDataCompletedEventHandler(object sender, AddWardWiseDataCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddWardWiseDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddWardWiseDataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void UpdateWardWiseDataCompletedEventHandler(object sender, UpdateWardWiseDataCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateWardWiseDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateWardWiseDataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Server2Client Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Server2Client)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void DeleteWardWiseDataCompletedEventHandler(object sender, DeleteWardWiseDataCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DeleteWardWiseDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DeleteWardWiseDataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

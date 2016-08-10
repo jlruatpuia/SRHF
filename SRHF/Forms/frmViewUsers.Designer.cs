@@ -34,8 +34,14 @@
             this.colUNM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPWD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUTP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEdit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDel = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repDel = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDel)).BeginInit();
             this.SuspendLayout();
             // 
             // grd
@@ -44,6 +50,9 @@
             this.grd.Location = new System.Drawing.Point(0, 0);
             this.grd.MainView = this.grv;
             this.grd.Name = "grd";
+            this.grd.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repEdit,
+            this.repDel});
             this.grd.Size = new System.Drawing.Size(663, 472);
             this.grd.TabIndex = 0;
             this.grd.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -55,13 +64,16 @@
             this.colUID,
             this.colUNM,
             this.colPWD,
-            this.colUTP});
+            this.colUTP,
+            this.colEdit,
+            this.colDel});
             this.grv.GridControl = this.grd;
             this.grv.GroupCount = 1;
             this.grv.Name = "grv";
             this.grv.OptionsView.ShowGroupPanel = false;
             this.grv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colUTP, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.grv.Click += new System.EventHandler(this.grv_Click);
             // 
             // colUID
             // 
@@ -105,6 +117,46 @@
             this.colUTP.Visible = true;
             this.colUTP.VisibleIndex = 2;
             // 
+            // colEdit
+            // 
+            this.colEdit.Caption = "Edit";
+            this.colEdit.ColumnEdit = this.repEdit;
+            this.colEdit.Name = "colEdit";
+            this.colEdit.OptionsColumn.AllowEdit = false;
+            this.colEdit.OptionsColumn.AllowFocus = false;
+            this.colEdit.OptionsColumn.ReadOnly = true;
+            this.colEdit.Visible = true;
+            this.colEdit.VisibleIndex = 2;
+            this.colEdit.Width = 62;
+            // 
+            // colDel
+            // 
+            this.colDel.Caption = "Deactivate";
+            this.colDel.ColumnEdit = this.repDel;
+            this.colDel.Name = "colDel";
+            this.colDel.OptionsColumn.AllowEdit = false;
+            this.colDel.OptionsColumn.AllowFocus = false;
+            this.colDel.OptionsColumn.ReadOnly = true;
+            this.colDel.Visible = true;
+            this.colDel.VisibleIndex = 3;
+            this.colDel.Width = 65;
+            // 
+            // repEdit
+            // 
+            this.repEdit.AutoHeight = false;
+            this.repEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repEdit.Name = "repEdit";
+            this.repEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // repDel
+            // 
+            this.repDel.AutoHeight = false;
+            this.repDel.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+            this.repDel.Name = "repDel";
+            this.repDel.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
             // frmViewUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,6 +173,8 @@
             this.Text = "View Users";
             ((System.ComponentModel.ISupportInitialize)(this.grd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -133,5 +187,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colUNM;
         private DevExpress.XtraGrid.Columns.GridColumn colPWD;
         private DevExpress.XtraGrid.Columns.GridColumn colUTP;
+        private DevExpress.XtraGrid.Columns.GridColumn colEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn colDel;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repDel;
     }
 }
